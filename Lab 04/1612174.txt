@@ -1,0 +1,127 @@
+﻿require(Lock5withR)
+data("SpeedDating") %load table
+str(SpeedDating) % structure of table
+View(SpeedDating) % hien structure duoi dang bang
+?SpeedDating # Chua cac descriptions cua 1 bang du lieu
+#data() # List cac data
+
+1. Mô tả tổng quan dataset (nguồn gốc, mục đích nghiên cứu, tổng thể nghiên cứu, cách thu
+thập dữ liệu, cỡ mẫu, số lượng biến).
+	- Nguồn gốc: Gelman and Hill phân tích dữ liệu sử dụng hồi quy và mô hình đa cấp /phân cấp của đại học Cambridge: New York năm 2007
+	- Mục đích nghiên cứu: 
+		Khảo sát và phân tích các đánh giá của các học sinh về bạn tình của mình tron 4 phút trường Columbia 
+		về việc tham dự sự kiên "hẹn hò tốc độ"
+	- Tổng thể nghiên cứu:
+		Những người tham dự sự kiện "SpeedDating" là học sinh của trường Columbia được chọn lọc bởi các trợ lý nghiên cứu.
+	- Cách thu thập dữ liệu:
+		Lấy dữ liệu ngày đầu tiên của cuộc hội giữa người tham dự và bạn tình của họ
+		Các cuộc gặp gỡ được chọn ngẫu nhiên và thời lượng 4 phút
+		Sau đó, người tham dự đánh giá các thuộc tính trên thang điểm 1-10.
+	- Cỡ mẫu: 276 quan sát
+	- Số lượng biến: 22 biến
+2. Chọn ra 5 biến quan tâm, trong đó có ít nhất 2 biến định tính và 2 biến định lượng. Mô tả sơ
+lược ý nghĩa 5 biến này và nêu lí do chọn.
+Các biến định tính:
+	- DecisionMale (Yes/No): Quyết dịnh nam có muốn 1 ngày hẹn nào khác không?
+	- DecisionFemale (Yes/No): Quyết dịnh nữ có muốn 1 ngày hẹn nào khác không?
+	Lý do: Tại vì cái kết quan trọng nhất là người tham dự có muốn tiến đến cuộc hẹn hò 
+	thật sự vào một ngày khác không.
+Các biến định lượng:
+	- AttractiveM (num): Nam đánh giá về sức quyến rũ của bạn nữ.
+	- LikeM (num): Mức độ thích của người nam đối với nữ.
+	- SincereM (m): Mam đánh giá về độ chân thành của nữ.
+	Lý do: Đây các yếu tố mang tính cảm tính để quyết định người nam có ấn tượng ban đầu tốt đối với người phụ nữ.
+
+
+3. Phân tích thăm dò riêng từng biến đã chọn:
+	a) Biến định tính:
+		- DecisionMale:
+			
+			NX: Số lượng nam đồng ý nhiều hơn là không đồng ý.
+		- RaceF:
+			
+			NX: Số lượng nữ không đồng ý nhiều hơn là đồng ý. Ngược với nam.
+		
+		NX chung: Nam có xu hướng dễ ấn tượng và thích bạn tình khác giới của mình hơn nữ.
+		
+	b) Biến định lượng:
+		- AttractiveM:
+			Đồ thị có dạng bell-shape
+			25% Nam đánh giá sức quyến rũ của bạn nữ ít nhất 1 - 5 điểm
+			50% Nam đánh giá sức quyến rũ của bạn nữ trong khoảng 5 - 8 điểm
+			25% Nam đánh giá sức quyến rũ của bạn nữ nhiều nhất từ 8 - 10 điểm
+			
+			Kết luận: 
+				50% Nam đánh giá sức quyến rũ của bạn nữ ít hơn 7 điểm.
+				50% Nam đánh giá sức quyến rũ của bạn nữ trên 7 điểm.
+				
+		- LikeM:
+			Đồ thị có dạng bell-shape
+			25% mức độ thích thú của nam ít nhất 1 - 6 điểm
+			50% mức độ thích thú của nam trong khoảng 6 - 8 điểm
+			25% mức độ thích thú của nam nhiều nhất từ 8 - 10 điểm
+			
+			Kết luận: 
+				50% mức độ thích thú của nam ít hơn 7 điểm.
+				50% mức độ thích thú của nam trên 7 điểm.
+		
+		- SincereM:
+			Đồ thị hơi nghiêng về bên trái.
+			25% nam đánh giá độ chân thành của nữ ít nhất 1 - 7 điểm
+			50% nam đánh giá độ chân thành của nữ trong khoảng 7 - 9 điểm
+			25% nam đánh giá độ chân thành của nữ nhiều nhất từ 9 - 10 điểm
+			
+			Kết luận: 
+				50% nam đánh giá độ chân thành của nữ ít hơn 8 điểm.
+				50% nam đánh giá độ chân thành của nữ trên 8 điểm.
+				
+		NX: Độ chân thành và sức quyến rũ của bạn nữ dễ ảnh hưởng đến lựa chọn thích của nam.
+		
+4. Chọn ra 2 biến định tính (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.
+	- DecisionMale, RaceF
+		Ta thấy rằng tỉ lệ phản hồi (no/yes) của người nam đối với chủng tộc của bạn nữ là Caucasian là cao nhất. (0.553, 0.52)
+		Tiến đến là người Asian (0.246, 0.26)
+		
+		Tỉ lệ phẩn hồi yes của cô gái da trắng:
+		pyes =  0.52
+		pno = 0.553
+		
+		Tỉ lệ khác biệt:
+		pyes - pno = 0.52 -0.553 = -0.033
+		
+		-> Tỷ lệ người nam không đồng ý cao hơn đồng ý đối với nữ da trắng 0.033.
+		
+		NX: Có lẽ người da trắng (Caucasian) và người da màu (Asian) nhận được sự phản hồi cao hơn các tộc còn lại.
+
+5. Chọn ra 1 biến định tính, 1 biến định lượng (từ 5 biến quan tâm) và phân tích thăm dò quan
+hệ giữa chúng.
+	- DecisionMale, AttractiveM
+	Ở trường hợp phản hồi no, Ta thấy median trùng với 1st quartile bằng 5.
+	Ở trường hợp phản hồi yes, ta thấy median trùng với 3rd quartile bằng 8.
+	Các outlier của phẩn hồi no xuất hiện nhiều hơn của phản hồi yes.
+	Ta thấy rằng có TH outlier bên phản hồi no có attractiveM = 10. Điều này khá bất thường
+	Còn bên phản hồi yes thì các TH bất thường không đáng kể lắm.
+	
+	Thêm vào đó, ta thấy rằng mean của DecisionMale: No (5.641) < mean của DecisionMale: Yes (7.59)
+	
+	Chúng ta thấy 1 liến kết khi attractiveM càng cao thì khả năng phản hồi yes cũng cao tuy rằng liên kết này không quá mạnh.
+
+6. Chọn ra 2 biến định lượng (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.
+	- AttractiveM và LikeM
+	Ta thấy rằng giữa 2 biến định lượng này có liên kết dương khá mạnh (positive association) (r = 0.724) do đó khi AttractiveM tăng thì LikeM cũng tăng.
+	Ta thấy dữ liệu có nhiều outlier trải dài cả đồ thị và nó không khít theo 1 đường thằng phân tách. 
+	
+	Chúng ta có thể kẻ 1 đường thẳng y = 1.911 + 0.7139x để chia tập dữ liệu thì ta thấy rằng y sẽ tăng 71.39% nếu x tăng lên 1 đơn vị. 
+	Cụ thể ở đây khi AttractiveM tăng 1 đơn vị thì LikeM sẽ tăng 71.39%. The intercept 1.911 chỉ rằng LikeM = 1.911 nếu AttractiveM = 0 nhưng hầu như rất hiểm AttractiveM = 0.
+	-> Việc dùng đường thẳng này để dự đoán ở đây là khả thi nhưng hiệu quả không cao do có quá nhiều outlier trong dữ liệu. 
+7. (Cộng điểm) Phân tích thăm dò quan hệ giữa nhiều hơn 2 biến (từ 5 biến quan tâm).
+	Multiple regression: LikeM ~ AttractiveM + SincereM
+	
+	- Ta thấy rằng p-value của F-statistic < 2.2e-16 điều này có nghĩa là ít nhất 1 biến x thay đổi thì sẽ ảnh hưởng đến output y.
+	- R-squared: 59.03% điều này cho thấy mô hình này có residual khá cao do đó khả năng đem đi dự đoán mang lai chinh xac thấp.
+	- Đường thẳng phân tách dữ liệu của ta là: y = 0.067 + 0.628x1 + 0.306x2
+	- Ta thấy cả attractiveM và likeM đều ảnh hưởng đáng kể đến output y.
+	- Cụ thế, ta thấy AttractiveM ảnh hưởng nhiều đến LikeM hơn là SincereM (0.628 > 0.306).
+	Ví dụ: khi attractiveM tăng 1 thì đầu ra y sẽ tăng 0.067 so với khi SincereM tăng 1 thì y chỉ tăng 0.306 đơn vị.
+	
+	

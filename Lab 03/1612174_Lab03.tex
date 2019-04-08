@@ -1,0 +1,228 @@
+% !TEX encoding = UTF-8 Unicode
+\documentclass[a4paper,12pt]{article}
+
+%-----------------------------------------Include package & set up some thing-----------------------------------------------
+\usepackage{fontspec}
+\setmainfont{Times New Roman} %set font
+\usepackage{enumitem} % to format list
+\usepackage{amsmath}
+\usepackage{listings} % quote code
+\usepackage{color}
+\usepackage{hyperref} % cite hyperlink & bookmarks
+\usepackage{setspace} % space
+\usepackage{graphicx} % insert image
+
+
+\hypersetup{unicode, colorlinks,linkcolor=black, urlcolor=cyan} % format hyperlink and bookmarks
+
+%Define title
+\title{Báo cáo bài tập 3}
+\author{1612174 - Phùng Tiến Hào - \href{mailto:tienhaophung@gmail.com}{tienhaophung@gmail.com}}
+\date{29/03/2019}
+
+%Code formatting with the listing package
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.3,0.3,0.3}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.92,0.92,0.88}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\maketitle
+	\newpage
+	
+	\doublespacing
+	\tableofcontents
+	\singlespace
+	
+	\newpage
+	\pagenumbering{arabic}
+	
+	\section{Câu 1}
+	(4 đ). Có 3 xạ thủ cùng bắn đạn vào bia. Xác suất để các xạ thủ bắn trúng bia lần lượt là
+	0.2, 0.4, 0.6. Giả sử rằng mỗi xạ thủ chỉ bắn 1 viên đạn và việc bắn đạn của một xạ thủ không bị
+	ảnh hưởng bởi các xạ thủ khác. Tính kì vọng của số đạn trúng bia.\\
+	
+	\begin{center}
+		\textbf{Giải}
+	\end{center}
+	
+	\begin{enumerate}[label = \alph*)]
+		\item Tìm phân phối của số đạn trúng bia.\\
+		
+		Gọi $p_1, p_2, p_3$ lần lượt là xác xuất bắn trúng bia của ba thợ săn:
+		
+		\begin{equation*}
+		\begin{cases}
+		p_1 = 0.2 -> p_1^c = 0.8\\
+		p_2 = 0.4 -> p_2^c = 0.6\\
+		p_3 = 0.6 -> p_3^c = 0.4\\
+		\end{cases}
+		\end{equation*}
+		
+		\begin{align*}
+		P(X = 0) &= p_1^c p_2^c p_3^c = 0.192\\
+		P(X = 1) &= p_1 p_2^c p_3^c + p_1^c p_2 p_3^c + p_1^c p_2^c p_3 = 0.464\\
+		P(X = 2) &= p_1 p_2 p_3^c + p_1^c p_2 p_3 + p_1 p_2^c p_3 = 0.296\\
+		P(X = 3) &= p_1 p_2 p_3 = 0.048
+		\end{align*}
+		
+		\begin{table}[h!]
+			\begin{center}
+				\caption{Bảng phân phối xác suất của X (với X là số viên đạn trung bia):}
+				\begin{tabular}{|c|c|c|c|c|}
+					\hline 
+					X & 0 & 1 & 2 & 3 \\ 
+					\hline 
+					P(X = x) & 0.192 & 0.464 & 0.296 & 0.048 \\ 
+					\hline 
+				\end{tabular} 
+			\end{center}
+		\end{table}
+		
+		\item Tính kì vọng của số đạn trúng bia.
+		
+		\begin{equation*}
+			E(X) = \Sigma p_ix_i = 1.2
+		\end{equation*}
+		
+	\end{enumerate}
+	
+	{\large\textbf{Mô phỏng trong R}} \\
+	\begin{lstlisting}[language=R]
+		X <- function(){
+			khanang <- c(1, 0)
+			thosan1 <- sample(khanang, 1, prob = c(0.2, 0.8))
+			thosan2 <- sample(khanang, 1, prob = c(0.4, 0.6))
+			thosan3 <- sample(khanang, 1, prob = c(0.6, 0.4))
+		
+			return (thosan1 + thosan2 + thosan3)
+		}
+		
+		meanX <- function(N){
+			kq <- replicate(N, X())
+			return (mean(kq))
+		}
+		
+		#Test
+		meanX(50000)
+		#> meanX(50000)
+		#[1] 1.19892	
+	\end{lstlisting}
+	
+	\section{Câu 2}
+	(3 đ). Một đồng xu có xác suất ra ngửa là 0.4. Gieo đồng xu đến khi ra ngửa thì dừng. Tính
+	kì vọng của số lần gieo. \\
+	
+	\begin{center}
+		\textbf{Giải}
+	\end{center}
+	
+	Xét thí nghiệm tung đồng xu đến khi có mặt ngửa thì dừng.\\
+	
+	Xác suất tung được mặt ngửa: $p = 0.4$\\
+	
+	Gọi X là bnn "Số lần tung được mặt sấp" thì X có phân phối hình học (Geometric distribution):
+	$$X \sim NB(1, 0.4)$$
+	
+	Do đó, kì vọng của số lần gieo đồng xu:
+	$$E(X + 1) = E(X) + 1 = \frac{1 - 0.4}{0.4} + 1 = 2.5$$
+	{\large\textbf{Mô phỏng trong R}} \\
+	\begin{lstlisting}[language=R]
+		X <- function(){
+			khanag <- c(1, 0) #1: Head, 0: tail
+			count <- 0
+			while(TRUE){
+				tung_dong_xu <- sample(khanag, 1, prob = c(0.4,0.6))
+				count <- count + 1
+				if(tung_dong_xu == 1){
+					break
+				}
+			}
+			return (count)
+		}
+		
+		meanX <- function(N){
+			kq <- replicate(N, X())
+			return (mean(kq))
+		}
+		
+		meanX(50000)
+		#> meanX(50000)
+		#[1] 2.5062
+	\end{lstlisting}
+	
+	\section{Câu 3}
+	(6 đ). Chọn ngẫu nhiên một số thực L trên đoạn [0, 1], dựng hình vuông có cạnh dài L mét. Tìm kì vọng của diện tích hình vuông \\
+	
+	\begin{center}
+		\textbf{Giải}
+	\end{center}
+		
+	Ta nhận thấy $X \sim Uniform(0, 1)$. Do đó, hàm mật độ xác suất của X là:
+	\begin{equation*}
+	f_X(x) = 
+	\begin{cases}
+	1, & \text{$0 \leq x \leq 1$} \\
+	0, & \text{otherwise}
+	\end{cases}
+	\end{equation*}
+	
+	Gọi Y là diện tích của hình vuông với cạnh X(m).
+	$$Y = X^2$$
+		
+	Ta thấy rằng Y là biến ngẫu nhiên phái sinh của biến ngẫu nhiên X qua hàm:
+	$$r(x) = x^2, 0 \leq x \leq 1$$
+	
+	Theo công thức kì vọng, ta có:
+	\begin{align*}
+		E(Y) = E(r(X)) &= \int_{-\infty}^{\infty} r(x)f_X(x)dx \\
+		&= \int_0^1 x^2dx \\
+		&= \frac{1}{3} \approx 0.333
+	\end{align*}	
+	
+	
+	{\large\textbf{Mô phỏng trong R}} \\
+	\begin{lstlisting}[language=R]
+		Y <- function(){
+			l <- runif(1, min = 0, max = 1)
+			return (l^2)
+		}
+
+		meanY <- function(N){
+			kq <- replicate(N, Y())
+			return (mean(kq))
+		}
+
+		#Test
+		meanY(50000)
+		#> meanY(50000)
+		#[1] 0.333004
+	\end{lstlisting}
+	
+	\section{Tham khảo}
+	\label{Tham khao}
+	[1] Introduction to R, \href{https://campus.datacamp.com/courses/free-introduction-to-r}{Datacamp}. \\
+	
+\end{document}
