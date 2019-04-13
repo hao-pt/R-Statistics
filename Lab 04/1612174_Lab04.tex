@@ -13,6 +13,7 @@
 \usepackage{graphicx} % insert image
 \usepackage{subcaption} % Multiple images
 \usepackage{float}
+\usepackage[margin=1in, footskip = 0.25in]{geometry} % Change margin with geometry package
 
 \hypersetup{unicode, colorlinks,linkcolor=black, urlcolor=cyan} % format hyperlink and bookmarks
 
@@ -97,8 +98,8 @@
 			\begin{itemize}
 				\item DecisionMale (Yes/No): Quyết dịnh nam có muốn 1 ngày hẹn nào khác không?
 				\item RaceF (Asian, Black,...): Chủng tộc của bạn nữ
-				\item[\textrightarrow] Lý do: vì cái kết quan trọng nhất là bạn nam tham dự có muốn tiến đến cuộc hẹn hò 
-				thật sự vào một ngày khác không.
+				\item[\textrightarrow] Lý do: vì cái kết quả quan trọng nhất là bạn nam tham dự có muốn tiến đến cuộc hẹn hò 
+				thật sự vào một ngày khác không. Thường con trai họ sẽ thích những người cùng chủng tộc với họ.
 			\end{itemize}
 			
 			
@@ -166,35 +167,74 @@
 							\caption[]{RaceF barchar}
 						\end{figure}
 						
-						NX chung: Tỷ lệ nữ trắng nhiều nhất, tiếp đến là nữ châu Á.
+						NX chung: Tỷ lệ nữ trắng nhiều nhất ($0.536$), tiếp đến là nữ châu Á ($0.254$).
 						
 						
 				\end{itemize}
 				
-			\item Biến định lượng:
+			\item Biến định lượng:\\
+			
+			
+				Mặc dù trung bình (mean) thường được sử dụng để mô tả trọng tâm của phân phối nhưng nó lại rất nhạy cảm với ngoại lệ (outlier). Do đó, trung vị (median) được dùng thay thế vì ít chịu ảnh hưởng của outlier.
+				
+				
+				Thêm vào đó, interquartile range (IQR): $IQR = Q_3 - Q_1$. Đây là đại lượng dùng để đo độ lan ra của dữ liệu (measure of spread) và ít bị ảnh hưởng bởi nhiễu.
+				
+				
+				Thông thường, người ta sử dụng median kèm với IQR như là 1 measure of spread khi mà dữ liệu có nhiều nhiễu.
+				
+				
 				\begin{itemize}
 				\item  AttractiveM:\\
 					\begin{lstlisting}[language = R]
 						# AttractiveM
-						summary(AttractiveM) # 5-number summary
+						five_num = summary(AttractiveM) # 5-number summary
 						>
-						  Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+						  Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA 
 						1.000   5.000   7.000   6.687   8.000  10.000       3
 						
-						# Histogram
+						# Range:
+						range = five_num[6] - five_num[1]; range
+						> 9
+						
+						# Interquartile range
+						IQR = five_num[5] - five_num[2]; IQR
+						> 3
+						
+						# Detect outlier: smaller than Q1 - 1.5(IQR) or greater than Q3 + 1.5(IQR)
+						(t1 <- five_num[2] - 1.5*IQR); (t2 <- five_num[5] + 1.5*IQR)
+						> 0.5
+						12.5
+						
+						# Dotplot de dem so luong cho tung diem tuong ung
+						dotPlot(~AttractiveM, width = 1, cex = 0.35)
+						# Ve histogram
 						hist(AttractiveM)
+						# Ve phan bo cua du lieu
+						densityplot(AttractiveM)
+						
 					\end{lstlisting}
 					
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.7\linewidth]{Images/Rplot2}
-						\caption{Histogram of AttractiveM}
+						\begin{subfigure}[b]{0.8\linewidth}
+							\includegraphics[width=\linewidth]{Images/dotplot1}
+							\caption{Dotplot of AttractiveM}
+						\end{subfigure}
+						\begin{subfigure}[b]{0.4\linewidth}
+							\includegraphics[width=\linewidth]{Images/Rplot2}
+							\caption{Histogram of AttractiveM}
+						\end{subfigure}
+						\begin{subfigure}[b]{0.4\linewidth}
+							\includegraphics[width=\linewidth]{Images/denplot1}
+							\caption{Density of AttractiveM}
+						\end{subfigure}
 						\label{fig:rplot2}
 					\end{figure}
 					
 					
 					\begin{itemize}
-						\item Đồ thị có dạng bell-shape
+						\item Đồ thị có dạng "xấp xỉ" bell-shape, gần đối xứng hai bên.
 						\item 25\% Nam đánh giá sức quyến rũ của bạn nữ ít nhất 1 - 5 điểm
 						\item 50\% Nam đánh giá sức quyến rũ của bạn nữ trong khoảng 5 - 8 điểm
 						\item 25\% Nam đánh giá sức quyến rũ của bạn nữ nhiều nhất từ 8 - 10 điểm
@@ -203,30 +243,66 @@
 							\item 50\% Nam đánh giá sức quyến rũ của bạn nữ ít hơn 7 điểm.
 							\item 50\% Nam đánh giá sức quyến rũ của bạn nữ trên 7 điểm.
 						\end{itemize}
+						\item Ta thấy $range = Max - Min = 9$, phân bố từ 1 - 10.
+						\item Ta tính được interquartile range (IQR): $IQR = Q_3 - Q_1 = 3$.
+						\item Dưa vào IQR, ta sẽ phát hiện được phạm vi phân bố của outliers:
+						Nhỏ hơn $Q_1 - 1.5*IQR = 0.5$ hay lớn hơn $Q_3 + 1.5*IQR = 12.5$. Ta thấy rằng không có outlier nào lớn hơn 12.5 và cũng không có outlier nào bé hơn 0.5 trong dữ liệu.  Điều này cho thấy dữ liệu đã được thu thập rất tốt. 
 					\end{itemize}
 					
 					
 				\item LikeM:
 					\begin{lstlisting}[language = R]
 					# LikeM
-					summary(LikeM) # 5-number summary
+					five_num = summary(LikeM) # 5-number summary
 					> 
-					Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+					Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA 
 					1.000   6.000   7.000   6.682   8.000  10.000       2
 					
-					# Histogram
+					# Range:
+					range = five_num[6] - five_num[1]; range
+					> 9
+					
+					# Interquartile range
+					IQR = five_num[5] - five_num[2]; IQR
+					> 2
+					
+					# Detect outlier: smaller than Q1 - 1.5(IQR) or greater than Q3 + 1.5(IQR)
+					(t1 <- five_num[2] - 1.5*IQR); (t2 <- five_num[5] + 1.5*IQR)
+					> 3
+					11
+					
+					# Tim so luong cac doi tuong outlier
+					# TH: < t1
+					count(subset(SpeedDating, LikeM < t1))
+					> 6
+					
+					# Dotplot de dem so luong cho tung diem tuong ung
+					dotPlot(~LikeM, width = 1, cex = 0.35)
+					# Ve histogram
 					hist(LikeM)
+					# Ve phan bo cua du lieu
+					densityplot(LikeM)
 					\end{lstlisting}
 					
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.7\linewidth]{Images/Rplot3}
-						\caption{Histogram of LikeM}
+						\begin{subfigure}[b]{0.8\linewidth}
+							\includegraphics[width=\linewidth]{Images/dotplot2}
+							\caption{Dotplot of LikeM}
+						\end{subfigure}
+						\begin{subfigure}[b]{0.4\linewidth}
+							\includegraphics[width=\linewidth]{Images/Rplot3}
+							\caption{Histogram of LikeM}
+						\end{subfigure}
+						\begin{subfigure}[b]{0.4\linewidth}
+							\includegraphics[width=\linewidth]{Images/denplot2}
+							\caption{Density of LikeM}
+						\end{subfigure}
 						\label{fig:rplot3}
 					\end{figure}
 					
 					\begin{itemize}
-						\item Đồ thị có dạng bell-shape
+						\item Đồ thị có dạng bell-shape, gần đối xứng 2 bên
 						\item 25\% mức độ thích thú của nam ít nhất 1 - 6 điểm 
 						\item 50\% mức độ thích thú của nam trong khoảng 6 - 8 điểm
 						\item 25\% mức độ thích thú của nam nhiều nhất từ 8 - 10 điểm
@@ -235,7 +311,10 @@
 							\item 50\% mức độ thích thú của nam ít hơn 7 điểm.
 							\item 50\% mức độ thích thú của nam trên 7 điểm.
 						\end{itemize}
-						
+						\item Ta thấy $range = Max - Min = 9$, phân bồ từ 1 - 10.
+						\item Ta tính được interquartile range (IQR): $IQR = Q_3 - Q_1 = 2$.
+						\item Dưa vào IQR, ta sẽ phát hiện được phạm vi phân bố của outliers:
+						Nhỏ hơn $Q_1 - 1.5*IQR = 3$ hay lớn hơn $Q_3 + 1.5*IQR = 11$. Ta thấy rằng có 6 outliers dưới 3 và không có outlier nào lớn hơn 11 trong dữ liệu.
 					\end{itemize}
 					
 					
@@ -245,23 +324,55 @@
 					# SincereM
 					summary(SincereM) # 5-number summary
 					>
-					 Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+					 Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA 
 					1.000   7.000   8.000   7.856   9.000  10.000       5
 					
-					# Histogram
+					# Range:
+					range = five_num[6] - five_num[1]; range
+					> 9
+					
+					# Interquartile range
+					IQR = five_num[5] - five_num[2]; IQR
+					> 2
+					
+					# Detect outlier: smaller than Q1 - 1.5(IQR) or greater than Q3 + 1.5(IQR)
+					(t1<-five_num[2] - 1.5*IQR); (t2 <- five_num[5] + 1.5*IQR)
+					> 4
+					12
+					
+					# Tim so luong cac doi tuong outlier
+					# TH: < t1
+					count(subset(SpeedDating, LikeM < t1))
+					> 13
+					
+					# Dotplot de dem so luong cho tung diem tuong ung
+					dotPlot(~SincereM, width = 1, cex = 0.35)
+					# Ve histogram
 					hist(SincereM)
+					# Ve phan bo cua du lieu
+					densityplot(SincereM)
 					\end{lstlisting}
 					
 					\begin{figure}[H]
 						\centering
-						\includegraphics[width=0.7\linewidth]{Images/Rplot4}
-						\caption{Histogram of SincereM}
+						\begin{subfigure}[b]{0.8\linewidth}
+							\includegraphics[width=\linewidth]{Images/dotplot3}
+							\caption{Dotplot of SincereM}
+						\end{subfigure}
+						\begin{subfigure}[b]{0.4\linewidth}
+							\includegraphics[width=\linewidth]{Images/Rplot4}
+							\caption{Histogram of SincereM}
+						\end{subfigure}
+						\begin{subfigure}[b]{0.4\linewidth}
+							\includegraphics[width=\linewidth]{Images/denplot3}
+							\caption{Density of SincereM}
+						\end{subfigure}
 						\label{fig:rplot4}
 					\end{figure}
 					
 					
 					\begin{itemize}
-						\item Đồ thị hơi nghiêng về bên trái.
+						\item Đồ thị hơi nghiêng về bên trái do đó $mean < median$ (7.856 < 8)
 						\item 25\% nam đánh giá độ chân thành của nữ ít nhất 1 - 7 điểm
 						\item 50\% nam đánh giá độ chân thành của nữ trong khoảng 7 - 9 điểm
 						\item 25\% nam đánh giá độ chân thành của nữ nhiều nhất từ 9 - 10 điểm
@@ -271,11 +382,14 @@
 								\item 50\% nam đánh giá độ chân thành của nữ ít hơn 8 điểm.
 								\item 50\% nam đánh giá độ chân thành của nữ trên 8 điểm.
 							\end{itemize}
-						
+								\item Ta thấy $range = Max - Min = 9$, phân bồ từ 1 - 10.
+							\item Ta tính được interquartile range (IQR): $IQR = Q_3 - Q_1 = 2$.
+							\item Dưa vào IQR, ta sẽ phát hiện được phạm vi phân bố của outliers:
+							Nhỏ hơn $Q_1 - 1.5*IQR = 4$ hay lớn hơn $Q_3 + 1.5*IQR = 12$. Ta thấy rằng có 13 outliers dưới 4 (khá nhiều) và không có outlier nào lớn hơn 12 trong dữ liệu.
 					\end{itemize}
 					
 				
-				NX: Độ chân thành và sức quyến rũ của bạn nữ dễ ảnh hưởng đến DecisionM và LikeM của nam.
+				NX cảm tính: Độ chân thành và sức quyến rũ của bạn nữ dễ ảnh hưởng đến DecisionM và LikeM của nam.
 					
 				\end{itemize}
 				
@@ -335,9 +449,9 @@
 		
 		\item Tỷ lệ nam phản hồi "yes" đối với người da trắng cao hơn với người châu Á: $0.553 - 0.246 = 0.307$
 		
-		\item Từ bảng 2-way table, ta thấy rằng có 4 người nữ không có chủng tộc: 2 nhận phản hồi "yes" và 2 nhận phản hồi no "no". 
+		\item Từ bảng 2-way table, ta thấy rằng có 4 người nữ không có chủng tộc: 2 nhận phản hồi "yes" và 2 nhận phản hồi no "no". Đây là nhóm nhận được phản hồi ít nhất, cũng dễ hiểu vì trong nhóm này chỉ có duy nhất 4 người.
 		
-		NX: người da trắng (Caucasian) và người da màu (Asian) nhận được sự phản hồi cao hơn các tộc còn lại.
+		NX: Người da trắng (Caucasian) và người da màu (Asian) nhận được sự phản hồi cao hơn các tộc còn lại.
 	\end{itemize}
 	
 	\section{Chọn ra 1 biến định tính, 1 biến định lượng (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.}
@@ -355,6 +469,13 @@
 		DecisionMale: Yes
 		[1] 7.59589
 		
+		# Tinh favorite statistics
+		favstats(~AttractiveM | DecisionMale)
+		>   
+		DecisionMale	min	Q1	median	Q3	max     mean       sd   n missing
+		1           No  	 1 	 5      5 	 6  	10 5.641732	 1.694877 127       3
+		2          Yes  	 5 	 7      8 	 8  	10 7.595890	 1.357375 146       0
+		
 		# side-by-side boxplots
 		boxplot(AttractiveM ~ DecisionMale, xlab = 'DecisionMale', ylab = 'AttractiveM')
 	\end{lstlisting}
@@ -369,19 +490,20 @@
 	\begin{itemize}
 		\item Ở trường hợp phản hồi "no", Ta thấy median trùng với 1st quartile bằng 5.
 		\item Ở trường hợp phản hồi "yes", ta thấy median trùng với 3rd quartile bằng 8.
-		\item Các outlier của phản hồi "no" xuất hiện nhiều hơn của phản hồi "yes". Điều này làm tần suất của dữ liệu trải dài đều từ 1 - 10.
-		\item Ta thấy rằng có TH outlier bên phản hồi "no" có attractiveM = 10. Điều này khá bất thường. Còn bên phản hồi "yes" thì các outlier không đáng kể lắm, phân bố cũng gần range của dữ liệu.
+		\item Do $se_{no} = 1.695 > se_{yes} = 1.357$ nên các outlier của phản hồi "no" xuất hiện nhiều hơn của phản hồi "yes". Điều này làm tần suất của dữ liệu trải dài đều từ 1 - 10.
+		\item Ta thấy rằng có TH outlier bên phản hồi "no" có attractiveM = 10. Điều này khá bất thường. Còn bên phản hồi "yes" thì các outlier không đáng kể lắm, phân bố cũng gần IQR của dữ liệu.
 
 		\item Thêm vào đó, ta thấy rằng mean của DecisionMale: No (5.641) < mean của DecisionMale: Yes (7.59). Do đó ta có thể nói mức điểm quyến rũ của phản hồi "yes" cao hơn của phản hồi "no".
 		
-		\item Đối với phản hồi "no", ta thấy rằng median < mean do có nhiều outlier trải dải từ 1-10. Ngược lại, phản hồi "yes" có median > mean do ít outlier hơn và phân bố của outlier cũng không quá xa range của dữ liệu.
+		\item Đối với phản hồi "no", ta thấy rằng median < mean do có nhiều outlier trải dải từ 1-10. Ngược lại, phản hồi "yes" có median > mean do ít outlier hơn và phân bố của outlier cũng không quá xa IQR của dữ liệu.
 		
-		\item Range của phản hồi "yes" và "no" cũng tương đối giống nhau.
+		\item Interquartile range của phản hồi "yes" và "no" bằng nhau $(IQR = 1)$.
 		
-		\item Chúng ta thấy có 1 liến kết khi attractiveM càng cao thì khả năng phản hồi yes cũng cao tuy rằng liên kết này không quá mạnh.
+		\item Chúng ta thấy có 1 liến kết khi AttractiveM càng cao thì khả năng phản hồi yes cũng cao tuy rằng liên kết này không quá mạnh.
 	\end{itemize}
 	
 	\section{Chọn ra 2 biến định lượng (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.}
+	\label{Cau6}
 	\underline{Chọn 2 biến định lượng:} AttractiveM (1-10) và LikeM (1-10)\\
 	
 	
@@ -420,13 +542,13 @@
 		\item Chúng ta có thể fit 1 đường thẳng (best-fit line) $y = 1.911 + 0.7139x$ để chia tập dữ liệu thì ta thấy rằng y sẽ tăng $71.39\%$ nếu x tăng lên 1 đơn vị. 
 		\item Cụ thể ở đây khi AttractiveM tăng 1 đơn vị thì LikeM sẽ tăng $71.39\%$. The intercept 1.911 chỉ rằng $LikeM = 1.911$ nếu $AttractiveM = 0$ nhưng hầu như rất hiếm $AttractiveM = 0$.
 		\item Ta thấy dữ liệu phân bố không gần best-fit line.
-		\item[\textrightarrow] Việc dùng đường thẳng này để dự đoán ở đây là khả thi nhưng hiệu quả không cao do dữ liệu không phân bố không gần regression line.
+		\item[\textrightarrow] Việc dùng đường thẳng này để dự đoán cho quần thể (population) ở đây là khả thi nhưng hiệu quả không cao do dữ liệu không phân bố không gần regression line điều này dẫn đến tổng residual trung bình bình phương (square error) trên tập traning set sẽ cao.
 	\end{itemize}
 	
 	\section{(Cộng điểm) Phân tích thăm dò quan hệ giữa nhiều hơn 2 biến (từ 5 biến quan tâm).}
 	\underline{Multiple regression: }LikeM $\sim$ AttractiveM + SincereM\\
 	\footnote{Sử dụng hàm ggpairs của GGally package để hiển thị hệ số tương quan cũng như scatterplot cho từng cặp biến và density plot cho từng biến}
-	\begin{lstlisting}
+	\begin{lstlisting}[language = R]
 		# Multiple regression
 		> fit <- lm(LikeM~AttractiveM + SincereM)
 		> summary(fit) # show the results
@@ -471,11 +593,11 @@
 	
 	\begin{itemize}
 		\item Ta thấy rằng p-value của $F-statistic < 2.2e-16$ điều này có nghĩa là ít nhất 1 biến $x$ thay đổi thì sẽ ảnh hưởng đến output $y$.
-		\item R-squared: $59.03\%$ điều này cho thấy mô hình này có residual khá cao do đó khả năng đem đi dự đoán mang lai chinh xác không cao.
+		\item R-squared: $59.03\%$ điều này cho thấy mô hình này có square error khá cao do đó khả năng đem đi dự đoán cho quần thể (population) mang lai chinh xác không cao.
 		\item Đường thẳng phân tách dữ liệu của ta là: $y = 0.067 + 0.628x_1 + 0.306x_2$
-		\item Ta thấy cả attractiveM và likeM đều ảnh hưởng đáng kể đến output y. Cụ thế, ta thấy AttractiveM ảnh hưởng nhiều đến LikeM hơn là SincereM (0.628 > 0.306).
-		\item Ví dụ: khi attractiveM tăng 1 thì đầu ra y sẽ tăng 0.067 lần so với khi SincereM tăng 1 thì y chỉ tăng 0.306 lần.
-		\item Như đã phân tích ở câu 6, ta thấy rằng giữa AttractiveM và LikeM có liên kết dương mạnh ($r_{AL} = 0.724$). Và giữa SincereM và LikeM cũng có liên kết dương trung tính ($r_{SL} = 0.491 \approx 0.5$). Điều này lại một lần nữa khẳng định sự ảnh hưởng của AttractiveM, SincereM lên LikeM là đáng kể.
+		\item Ta thấy cả AttractiveM và LikeM đều ảnh hưởng đáng kể đến output y. Cụ thế, ta thấy AttractiveM ảnh hưởng nhiều đến LikeM hơn là SincereM (0.628 > 0.306).
+		\item Ví dụ: khi AttractiveM tăng 1 thì đầu ra y sẽ tăng 0.067 lần so với khi SincereM tăng 1 thì y chỉ tăng 0.306 lần.
+		\item Như đã phân tích ở câu \ref{Cau6} (trang \pageref{Cau6}), ta thấy rằng giữa AttractiveM và LikeM có liên kết dương mạnh ($r_{AL} = 0.724$). Và giữa SincereM và LikeM cũng có liên kết dương trung tính ($r_{SL} = 0.491 \approx 0.5$). Điều này lại một lần nữa khẳng định sự ảnh hưởng của AttractiveM, SincereM lên LikeM là đáng kể.
 		\item Thêm vào đó, hệ số tương quan của AttractiveM và SincereM $r_{AS} = 0.368$ không quá mạnh. Điều này cho thấy sự thay đổi của cả 2 không ảnh hưởng đến nhau nhiều.
 		\item Ta thấy rằng các scatter plot giữa (AttractiveM, LikeM), (SincereM, LikeM) và (AttractiveM, SincereM) có phần smooth curve màu xám. Phần xám này khá to ở phần đâu khi số lượng point nhỏ và dần về sau phân xám nhỏ đi và biến mất khi số point nhiều hơn.
 		\item Các smooth curves này giúp chúng ta thấy được số lượng các liên kết không chắc chắn (uncertain association) với regression line. Sự không chắc chắn này tăng khi dữ liệu quan sát nhỏ và giảm khi dữ liệu quan sát lớn.

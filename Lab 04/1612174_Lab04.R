@@ -34,16 +34,62 @@ barplot(tab2)
 
 # b) One quantitative varible
 # AttractiveM
-summary(AttractiveM) # 5-number summary
+five_num = summary(AttractiveM) # 5-number summary
+
+# Range:
+range = five_num[6] - five_num[1]; range
+# Interquartile range
+IQR = five_num[5] - five_num[2]; IQR
+# Detect outlier: smaller than Q1 - 1.5(IQR) or greater than Q3 + 1.5(IQR)
+(t1 <- five_num[2] - 1.5*IQR); (t2 <- five_num[5] + 1.5*IQR)
+
+# Dotplot de dem so luong cho tung diem tuong ung
+dotPlot(~AttractiveM, width = 1, cex = 0.35)
+# Ve histogram
 hist(AttractiveM)
+# Ve phan bo cua du lieu
+densityplot(AttractiveM)
 
 # LikeM
-summary(LikeM) # 5-number summary
+five_num = summary(LikeM) # 5-number summary
+# Range:
+range = five_num[6] - five_num[1]; range
+# Interquartile range
+IQR = five_num[5] - five_num[2]; IQR
+# Detect outlier: smaller than Q1 - 1.5(IQR) or greater than Q3 + 1.5(IQR)
+(t1 <- five_num[2] - 1.5*IQR); (t2 <- five_num[5] + 1.5*IQR)
+
+# Tim so luong cac doi tuong outlier
+# TH: < t1
+count(subset(SpeedDating, LikeM < t1))
+
+# Dotplot de dem so luong cho tung diem tuong ung
+dotPlot(~LikeM, width = 1, cex = 0.35)
+# Ve histogram
 hist(LikeM)
+# Ve phan bo cua du lieu
+densityplot(LikeM)
 
 # SincereM
-summary(SincereM) # 5-number summary
+five_num = summary(SincereM) # 5-number summary
+
+# Range:
+range = five_num[6] - five_num[1]; range
+# Interquartile range
+IQR = five_num[5] - five_num[2]; IQR
+# Detect outlier: smaller than Q1 - 1.5(IQR) or greater than Q3 + 1.5(IQR)
+(t1<-five_num[2] - 1.5*IQR); (t2 <- five_num[5] + 1.5*IQR)
+
+# Tim so luong cac doi tuong outlier
+# TH: < t1
+count(subset(SpeedDating, LikeM < t1))
+
+# Dotplot de dem so luong cho tung diem tuong ung
+dotPlot(~SincereM, width = 1, cex = 0.35)
+# Ve histogram
 hist(SincereM)
+# Ve phan bo cua du lieu
+densityplot(SincereM)
 
 detach(SpeedDating)
 
@@ -67,6 +113,10 @@ attach(SpeedDating) # Avoid dollar sign before each varibles name
 # 1 quantitative and 1 categorical varibles
 # statistics for the quantitative variable within each category
 by(AttractiveM, DecisionMale, mean, na.rm=TRUE)
+
+# Tinh favorite statistics
+favstats(~AttractiveM | DecisionMale)
+
 # side-by-side boxplots
 boxplot(AttractiveM ~ DecisionMale, xlab = 'DecisionMale', ylab = 'AttractiveM')
 detach(SpeedDating)

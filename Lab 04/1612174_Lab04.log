@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (MiKTeX 2.9.7000 64-bit)  (format=lualatex 2019.3.19)  8 APR 2019 22:41
+This is LuaTeX, Version 1.10.0 (MiKTeX 2.9.7000 64-bit)  (format=lualatex 2019.3.19)  12 APR 2019 23:18
  restricted system commands enabled.
 **1612174_Lab04.tex
 (./1612174_Lab04.tex
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 1.104 seconds
+luaotfload | main : initialization completed in 1.063 seconds
 
 ("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cl
 s"
@@ -619,113 +619,131 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks25
 \@floatcapt=\box51
 )
-Package hyperref Info: Option `unicode' set `true' on input line 17.
+("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/latex/geometry/geomet
+ry.sty"
+Package: geometry 2018/04/16 v5.8 Page Geometry
+\Gm@cnth=\count289
+\Gm@cntv=\count290
+\c@Gm@tempcnt=\count291
+\Gm@bindingoffset=\dimen165
+\Gm@wd@mp=\dimen166
+\Gm@odd@mp=\dimen167
+\Gm@even@mp=\dimen168
+\Gm@layoutwidth=\dimen169
+\Gm@layoutheight=\dimen170
+\Gm@layouthoffset=\dimen171
+\Gm@layoutvoffset=\dimen172
+\Gm@dimlist=\toks26
+
+("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/latex/geometry/geomet
+ry.cfg"))
+Package hyperref Info: Option `unicode' set `true' on input line 18.
 
 ("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/puenc.
 def"
 File: puenc.def 2018/11/30 v6.88e Hyperref: PDF Unicode definition (HO)
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 17.
+Package hyperref Info: Option `colorlinks' set `true' on input line 18.
  (./1612174_Lab04.aux)
 \openout1 = 1612174_Lab04.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 53.
-LaTeX Font Info:    ... okay on input line 53.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 54.
+LaTeX Font Info:    ... okay on input line 54.
 
 Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 (fontspec)             this).
 
 \symlegacymaths=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 53.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 53.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 53.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 53.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 53.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 53.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 53.
-LaTeX Font Info:    Redeclaring math accent \check on input line 53.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 53.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 53.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 53.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 53.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 53.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 54.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 54.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 54.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 54.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 54.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 54.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 54.
+LaTeX Font Info:    Redeclaring math accent \check on input line 54.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 54.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 54.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 54.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 54.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 54.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 53.
+(Font)              `operators' in the math version `normal' on input line 54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 53
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 54
 .
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 53.
+(Font)              `operators' in the math version `bold' on input line 54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 5
-3.
+4.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on i
-nput line 53.
+nput line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line 
-53.
+54.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/bx/n on input line 
-53.
+54.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 53.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 53.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 54.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/bx/n on 
-input line 53.
+input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/bx/it on input lin
-e 53.
+e 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 53.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/bx/n on input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 53.
-\c@lstlisting=\count289
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/bx/n on input line 54.
+\c@lstlisting=\count292
 
 ("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/context/base/mkii/sup
 p-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count290
-\scratchdimen=\dimen165
+\scratchcounter=\count293
+\scratchdimen=\dimen173
 \scratchbox=\box52
-\nofMPsegments=\count291
-\nofMParguments=\count292
-\everyMPshowfont=\toks26
-\MPscratchCnt=\count293
-\MPscratchDim=\dimen166
-\MPnumerator=\count294
-\makeMPintoPDFobject=\count295
-\everyMPtoPDFconversion=\toks27
+\nofMPsegments=\count294
+\nofMParguments=\count295
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count296
+\MPscratchDim=\dimen174
+\MPnumerator=\count297
+\makeMPintoPDFobject=\count298
+\everyMPtoPDFconversion=\toks28
 )
 ("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/latex/oberdiek/epstop
 df-base.sty"
@@ -743,7 +761,7 @@ Package grfext Info: Graphics extension search list:
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 \AtBeginShipoutBox=\box53
-Package hyperref Info: Link coloring ON on input line 53.
+Package hyperref Info: Link coloring ON on input line 54.
 
 ("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/latex/hyperref/namere
 f.sty"
@@ -753,11 +771,11 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 itlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count296
+\c@section@level=\count299
 )
-LaTeX Info: Redefining \ref on input line 53.
-LaTeX Info: Redefining \pageref on input line 53.
-LaTeX Info: Redefining \nameref on input line 53.
+LaTeX Info: Redefining \ref on input line 54.
+LaTeX Info: Redefining \pageref on input line 54.
+LaTeX Info: Redefining \nameref on input line 54.
  (./1612174_Lab04.out) (./1612174_Lab04.out)
 \@outlinefile=\write3
 
@@ -765,33 +783,62 @@ LaTeX Info: Redefining \nameref on input line 53.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
- [1
 
-{C:/Users/Tien Hao/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (./16121
-74_Lab04.toc)
+*geometry* driver: auto-detecting
+*geometry* detected driver: luatex
+*geometry* verbose mode - [ preamble ] result:
+* driver: luatex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=452.9679pt
+* \textheight=700.50687pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=18.06749pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+[1
+
+{C:/Users/Tien Hao/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+(./1612174_Lab04.toc)
 \tf@toc=\write4
 
 \openout4 = 1612174_Lab04.toc
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [2]
-Overfull \hbox (18.82332pt too wide) in paragraph at lines 65--65
-[]\TU/TimesNewRoman(0)/bx/n/17.28 Mô tả tổng quan dataset (nguồn gốc, 
-mục đích nghiên
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--98
+Underfull \hbox (badness 10000) in paragraph at lines 97--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--107
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
 
  []
 
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
@@ -811,106 +858,137 @@ File: lstlang3.sty 2019/02/27 1.8b listings language file
 <Images/Rplot01.png, id=71, 449.42906pt x 272.51813pt>
 File: Images/Rplot01.png Graphic file (type png)
 <use Images/Rplot01.png>
-Package luatex.def Info: Images/Rplot01.png  used on input line 140.
-(luatex.def)             Requested size: 390.0pt x 236.49005pt.
- [2]
-Underfull \hbox (badness 10000) in paragraph at lines 146--147
+Package luatex.def Info: Images/Rplot01.png  used on input line 141.
+(luatex.def)             Requested size: 452.9679pt x 274.6756pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
-<Images/Rplot.png, id=95, 449.42906pt x 272.51813pt>
+[2<./Images/Rplot01.png>]
+<Images/Rplot.png, id=100, 449.42906pt x 272.51813pt>
 File: Images/Rplot.png Graphic file (type png)
 <use Images/Rplot.png>
-Package luatex.def Info: Images/Rplot.png  used on input line 165.
-(luatex.def)             Requested size: 390.0pt x 236.49005pt.
-[3<./Images/Rplot01.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 176--177
+Package luatex.def Info: Images/Rplot.png  used on input line 166.
+(luatex.def)             Requested size: 452.9679pt x 274.6756pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--176
 
  []
 
-<Images/Rplot2.png, id=120, 449.42906pt x 272.51813pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--189
+
+ []
+
+[3<./Images/Rplot.png>]
+<Images/dotplot1.png, id=124, 451.6875pt x 272.51813pt>
+File: Images/dotplot1.png Graphic file (type png)
+<use Images/dotplot1.png>
+Package luatex.def Info: Images/dotplot1.png  used on input line 221.
+(luatex.def)             Requested size: 362.37569pt x 218.64685pt.
+<Images/Rplot2.png, id=125, 449.42906pt x 272.51813pt>
 File: Images/Rplot2.png Graphic file (type png)
 <use Images/Rplot2.png>
-Package luatex.def Info: Images/Rplot2.png  used on input line 190.
-(luatex.def)             Requested size: 272.99881pt x 165.54137pt.
-[4<./Images/Rplot.png>]
-<Images/Rplot3.png, id=138, 449.42906pt x 272.51813pt>
+Package luatex.def Info: Images/Rplot2.png  used on input line 225.
+(luatex.def)             Requested size: 181.18439pt x 109.86192pt.
+<Images/denplot1.png, id=126, 451.6875pt x 272.51813pt>
+File: Images/denplot1.png Graphic file (type png)
+<use Images/denplot1.png>
+Package luatex.def Info: Images/denplot1.png  used on input line 229.
+(luatex.def)             Requested size: 181.18439pt x 109.31718pt.
+ [4] [5<./Images/dotplot1.png><./Images/Rplot2.png><./Images/denplot1.png>]
+<Images/dotplot2.png, id=175, 451.6875pt x 272.51813pt>
+File: Images/dotplot2.png Graphic file (type png)
+<use Images/dotplot2.png>
+Package luatex.def Info: Images/dotplot2.png  used on input line 290.
+(luatex.def)             Requested size: 362.37569pt x 218.64685pt.
+<Images/Rplot3.png, id=176, 449.42906pt x 272.51813pt>
 File: Images/Rplot3.png Graphic file (type png)
 <use Images/Rplot3.png>
-Package luatex.def Info: Images/Rplot3.png  used on input line 223.
-(luatex.def)             Requested size: 272.99881pt x 165.54137pt.
- [5<./Images/Rplot2.png>]
-<Images/Rplot4.png, id=155, 449.42906pt x 272.51813pt>
+Package luatex.def Info: Images/Rplot3.png  used on input line 294.
+(luatex.def)             Requested size: 181.18439pt x 109.86192pt.
+<Images/denplot2.png, id=177, 451.6875pt x 272.51813pt>
+File: Images/denplot2.png Graphic file (type png)
+<use Images/denplot2.png>
+Package luatex.def Info: Images/denplot2.png  used on input line 298.
+(luatex.def)             Requested size: 181.18439pt x 109.31718pt.
+ [6<./Images/dotplot2.png><./Images/Rplot3.png><./Images/denplot2.png>]
+<Images/dotplot3.png, id=210, 451.6875pt x 272.51813pt>
+File: Images/dotplot3.png Graphic file (type png)
+<use Images/dotplot3.png>
+Package luatex.def Info: Images/dotplot3.png  used on input line 359.
+(luatex.def)             Requested size: 362.37569pt x 218.64685pt.
+<Images/Rplot4.png, id=211, 449.42906pt x 272.51813pt>
 File: Images/Rplot4.png Graphic file (type png)
 <use Images/Rplot4.png>
-Package luatex.def Info: Images/Rplot4.png  used on input line 257.
-(luatex.def)             Requested size: 272.99881pt x 165.54137pt.
- [6<./Images/Rplot3.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 286--287
+Package luatex.def Info: Images/Rplot4.png  used on input line 363.
+(luatex.def)             Requested size: 181.18439pt x 109.86192pt.
+<Images/denplot3.png, id=212, 451.6875pt x 272.51813pt>
+File: Images/denplot3.png Graphic file (type png)
+<use Images/denplot3.png>
+Package luatex.def Info: Images/denplot3.png  used on input line 367.
+(luatex.def)             Requested size: 181.18439pt x 109.31718pt.
+ [7]
+Underfull \hbox (badness 10000) in paragraph at lines 400--401
 
  []
 
-[7<./Images/Rplot4.png>]
-<Images/drplot.png, id=188, 449.42906pt x 272.51813pt>
+[8<./Images/dotplot3.png><./Images/Rplot4.png><./Images/denplot3.png>]
+<Images/drplot.png, id=257, 449.42906pt x 272.51813pt>
 File: Images/drplot.png Graphic file (type png)
 <use Images/drplot.png>
-Package luatex.def Info: Images/drplot.png  used on input line 318.
-(luatex.def)             Requested size: 272.99881pt x 165.54137pt.
- [8<./Images/drplot.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Package luatex.def Info: Images/drplot.png  used on input line 432.
+(luatex.def)             Requested size: 317.07614pt x 192.27084pt.
+ [9<./Images/drplot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
-<Images/boxplot.png, id=212, 449.42906pt x 272.51813pt>
+<Images/boxplot.png, id=291, 449.42906pt x 272.51813pt>
 File: Images/boxplot.png Graphic file (type png)
 <use Images/boxplot.png>
-Package luatex.def Info: Images/boxplot.png  used on input line 364.
-(luatex.def)             Requested size: 312.00119pt x 189.19371pt.
-[9]
-Underfull \hbox (badness 10000) in paragraph at lines 385--386
+Package luatex.def Info: Images/boxplot.png  used on input line 485.
+(luatex.def)             Requested size: 362.37569pt x 219.74048pt.
+[10]
+Underfull \hbox (badness 10000) in paragraph at lines 507--508
 
  []
 
-[10<./Images/boxplot.png>]
-<Images/scatterplot.png, id=238, 449.42906pt x 272.51813pt>
+[11<./Images/boxplot.png>]
+<Images/scatterplot.png, id=324, 449.42906pt x 272.51813pt>
 File: Images/scatterplot.png Graphic file (type png)
 <use Images/scatterplot.png>
-Package luatex.def Info: Images/scatterplot.png  used on input line 412.
-(luatex.def)             Requested size: 312.00119pt x 189.19371pt.
- [11<./Images/scatterplot.png>]
-Overfull \hbox (0.59717pt too wide) in paragraph at lines 426--426
-[]\TU/TimesNewRoman(0)/bx/n/17.28 (Cộng điểm) Phân tích thăm dò quan h
-ệ giữa nhiều
- []
-
-[12]
-<Images/Rplot_3v.png, id=292, 449.42906pt x 272.51813pt>
+Package luatex.def Info: Images/scatterplot.png  used on input line 534.
+(luatex.def)             Requested size: 362.37569pt x 219.74048pt.
+ [12<./Images/scatterplot.png>]
+<Images/Rplot_3v.png, id=353, 449.42906pt x 272.51813pt>
 File: Images/Rplot_3v.png Graphic file (type png)
 <use Images/Rplot_3v.png>
-Package luatex.def Info: Images/Rplot_3v.png  used on input line 466.
-(luatex.def)             Requested size: 390.0pt x 236.49005pt.
- [13<./Images/Rplot_3v.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 493.
- [14]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 493.
+Package luatex.def Info: Images/Rplot_3v.png  used on input line 588.
+(luatex.def)             Requested size: 452.9679pt x 274.6756pt.
+ [13] [14<./Images/Rplot_3v.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 615.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 615.
  (./1612174_Lab04.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 493.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 493.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 615.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 615.
 Package rerunfilecheck Info: File `1612174_Lab04.out' has not changed.
 (rerunfilecheck)             Checksum: AECA02DFCBB502730E775AB2CC3DABA6;4575.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 493.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 615.
 )
 
 Here is how much of LuaTeX's memory you used:
- 24377 strings out of 494300
- 156263,794899 words of node,token memory allocated
+ 24983 strings out of 494300
+ 244183,794899 words of node,token memory allocated
  618 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 5 glue, 4 kern, 1 glyph, 19 attribute, 54 glue_spec
 , 19 attribute_list, 1 write, 7 pdf_action nodes
-   avail lists: 1:1,2:2794,3:114,4:3011,5:3003,6:32,7:4238,8:43,9:7499,10:59,11:
-341
- 27887 multiletter control sequences out of 65536+200000
- 77 fonts using 23647127 bytes
+   avail lists: 2:4671,3:188,4:5366,5:5106,6:53,7:6556,8:39,9:12804,10:59,11:572
+
+ 28354 multiletter control sequences out of 65536+200000
+ 78 fonts using 24413383 bytes
  47i,8n,78p,945b,1482s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 warning  (pdf backend): unreferenced destination with name 'Hfootnote.3'
@@ -925,9 +1003,9 @@ i8.pfb><C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
 msfonts/cm/cmr12.pfb><C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Tien Hao/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 1612174_Lab04.pdf (16 pages, 254696 bytes).
+Output written on 1612174_Lab04.pdf (17 pages, 295711 bytes).
 
-PDF statistics: 366 PDF objects out of 1000 (max. 8388607)
- 196 named destinations out of 1000 (max. 131072)
+PDF statistics: 456 PDF objects out of 1000 (max. 8388607)
+ 266 named destinations out of 1000 (max. 131072)
  65 words of extra memory for PDF output out of 10000 (max. 100000000)
 

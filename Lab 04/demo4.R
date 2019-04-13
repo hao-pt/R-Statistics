@@ -31,9 +31,11 @@ barchart(~Response, data = OneTrueLove)
 
 require(Lock5withR) # Load package containing our data set
 require(dplyr)
+attach(StudentSurvey)
 data("StudentSurvey")
 View(StudentSurvey)
-#tally(~Gender + Award, margin = TRUE, data = StudentSurvey)
-tally()
+tally(Gender, Award)
+
+detach(StudentSurvey)
 
 names(StudentSurvey)

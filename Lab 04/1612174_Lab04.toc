@@ -1,8 +1,8 @@
 \contentsline {section}{\numberline {1}Mô tả tổng quan dataset (nguồn gốc, mục đích nghiên cứu, tổng thể nghiên cứu, cách thu thập dữ liệu, cỡ mẫu, số lượng biến).}{1}{section.1}% 
 \contentsline {section}{\numberline {2}Chọn ra 5 biến quan tâm, trong đó có ít nhất 2 biến định tính và 2 biến định lượng. Mô tả sơ lược ý nghĩa 5 biến này và nêu lí do chọn.}{1}{section.2}% 
 \contentsline {section}{\numberline {3}Phân tích thăm dò riêng từng biến đã chọn:}{2}{section.3}% 
-\contentsline {section}{\numberline {4}Chọn ra 2 biến định tính (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.}{7}{section.4}% 
-\contentsline {section}{\numberline {5}Chọn ra 1 biến định tính, 1 biến định lượng (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.}{9}{section.5}% 
+\contentsline {section}{\numberline {4}Chọn ra 2 biến định tính (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.}{9}{section.4}% 
+\contentsline {section}{\numberline {5}Chọn ra 1 biến định tính, 1 biến định lượng (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.}{10}{section.5}% 
 \contentsline {section}{\numberline {6}Chọn ra 2 biến định lượng (từ 5 biến quan tâm) và phân tích thăm dò quan hệ giữa chúng.}{11}{section.6}% 
-\contentsline {section}{\numberline {7}(Cộng điểm) Phân tích thăm dò quan hệ giữa nhiều hơn 2 biến (từ 5 biến quan tâm).}{12}{section.7}% 
-\contentsline {section}{\numberline {8}Tham khảo}{14}{section.8}% 
+\contentsline {section}{\numberline {7}(Cộng điểm) Phân tích thăm dò quan hệ giữa nhiều hơn 2 biến (từ 5 biến quan tâm).}{13}{section.7}% 
+\contentsline {section}{\numberline {8}Tham khảo}{15}{section.8}% 
