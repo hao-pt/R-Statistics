@@ -16,7 +16,7 @@ data <- c(rep(1, 60), rep(0, 40)) #Sample data: 60 nu, 40 nam
 
 # Tinh ti le mau
 stat <- function(data){
-  return (sum(data)/length(data))
+  return (sum(data)/length(data)) # TK can tinh
 }
 
 # Lay mau co hoan lai tren chinh sample data
@@ -59,8 +59,18 @@ boots_dist <- bootstrap(10000)
 se_boots <- sd(boots_dist); se_boots
 conf_boots <- quantile(boots_dist, c(alpha/2, 1 - alpha/2)); conf_boots
 
-# Xay dung khoang tin cay cho trung vi
+# 3. Xay dung khoang tin cay cho trung vi
 boxplot(data)
+
 stat <- function(data){ # TK can tinh
   return (median(data))
 }
+
+boostrap <- function(B){
+  return (replicate(B, stat(data, n, replace = TRUE)))
+}
+
+alpha <- 1 - 0.95
+boots_dist <- bootstrap(10000)
+se_boots <- sd(boots_dist); se_boots
+conf_boots <- quantile(boots_dist, c(alpha/2, 1 - alpha/2)); conf_boots
