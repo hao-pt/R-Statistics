@@ -1,0 +1,18 @@
+\contentsline {section}{\numberline {1}Khảo sát một biến}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Biến định tính (Categorical variable)}{1}{subsection.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.1}DecisionMale (Yes/No)}{1}{subsubsection.1.1.1}% 
+\contentsline {subsubsection}{\numberline {1.1.2}RaceF (Caucasian, Asian,..., Other)}{2}{subsubsection.1.1.2}% 
+\contentsline {subsection}{\numberline {1.2}Biến định lượng (Quantative variable)}{3}{subsection.1.2}% 
+\contentsline {subsubsection}{\numberline {1.2.1}AttractiveM (0-10)}{3}{subsubsection.1.2.1}% 
+\contentsline {subsubsection}{\numberline {1.2.2}LikeM (0-10)}{6}{subsubsection.1.2.2}% 
+\contentsline {subsubsection}{\numberline {1.2.3}SincereM (0-10)}{8}{subsubsection.1.2.3}% 
+\contentsline {section}{\numberline {2}Khảo sát cặp biến}{11}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Biến định tính vs biến định tính}{11}{subsection.2.1}% 
+\contentsline {subsubsection}{\numberline {2.1.1}Kiểm định cho tỉ lệ khác biệt giữa nữ da trắng nhận phản hồi "Yes" và "No"}{12}{subsubsection.2.1.1}% 
+\contentsline {subsubsection}{\numberline {2.1.2}Kiểm định cho tỉ lệ khác biệt giữa nữ châu Á nhận phản hồi "Yes"/"No"}{13}{subsubsection.2.1.2}% 
+\contentsline {subsection}{\numberline {2.2}Biến định tính và biến định lượng}{15}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Kiểm định cho độ chênh lệch kì vọng giữa mức độ hấp dẫn của nữ trong phản hồi "Yes" và mức độ hấp dẫn của nữ trong phản hồi "No"}{15}{subsubsection.2.2.1}% 
+\contentsline {subsubsection}{\numberline {2.2.2}Kiểm định cho độ chênh lệch trung vị (median) giữa mức độ hấp dẫn của nữ trong phản hồi "Yes" và mức độ hấp dẫn của nữ trong phản hồi "No"}{17}{subsubsection.2.2.2}% 
+\contentsline {subsection}{\numberline {2.3}Biến định lượng và biến định lượng}{19}{subsection.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}Kiểm định cho hệ số tương quan giữa AttractiveM và LikeM}{21}{subsubsection.2.3.1}% 
+\contentsline {subsubsection}{\numberline {2.3.2}Kiểm định cho hệ số hồi qui $\beta $ (regression slope) của regression line}{22}{subsubsection.2.3.2}% 
