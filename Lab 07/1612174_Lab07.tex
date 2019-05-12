@@ -78,9 +78,9 @@
 	\section{Chi-square Goodness of Fit Test for single catogorical variable}
 	\subsection{DecisionMale (Yes/No)}
 	
-	Giả sử, ta cần khảo sát tỉ lệ nam phản hồi (Yes/No) cho quần thể (population) là toàn bộ học sinh nam của trường Columbia. Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát trong đó có 146 phản hồi "Yes" và 130 phản hồi "No". Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "tỉ lệ phản hồi Yes và phản hồi No bằng nhau" với mức ý nghĩa (significance level) 5\%.
+	Giả sử, ta cần khảo sát tỉ lệ nam phản hồi (Yes/No) cho quần thể (population) là toàn bộ học sinh nam của trường Columbia. Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát trong đó có 146 phản hồi "Yes" và 130 phản hồi "No". Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "tỉ lệ phản hồi Yes và phản hồi No bằng nhau" với mức ý nghĩa (significance level) 5\%.\\
 	
-	Tỉ lệ kỳ vọng (Expected proportion) là $0.5$ cho các phản hồi "Yes" và "No".
+	Tỉ lệ kỳ vọng (Expected proportion) là $0.5$ cho các phản hồi "Yes" và "No".\\
 	
 	Ta thực hiện kiểm định giả thuyết:
 	
@@ -90,7 +90,7 @@
 		H_1: p_{Yes} \neq p_{No}
 		\end{cases}
 	\end{equation*}
-	với mức ý nghĩa $\alpha = 0.5\%$
+	với mức ý nghĩa $\alpha = 0.5\%$\\
 	
 	Lưu ý: Để dùng Chi-square để kiểm định thì các ô quan sát phải ít nhất 5.
 	
@@ -132,11 +132,11 @@
 	
 	\subsection{RaceF (Caucasian, Asian,..., Other)}
 	
-	Giả sử, ta cần khảo sát tỉ lệ dân tộc nữ (Caucasian, Asian,..., Other) cho quần thể (population) là toàn bộ học sinh nữ của trường Columbia. Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát trong đó 6 dân tộc: 4 rỗng, 70 Asians, 15 Blacks, 148 Caucasians, 23 Latino và 16 Others. 
+	Giả sử, ta cần khảo sát tỉ lệ dân tộc nữ (Caucasian, Asian,..., Other) cho quần thể (population) là toàn bộ học sinh nữ của trường Columbia. Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát trong đó 6 dân tộc: 4 rỗng, 70 Asians, 15 Blacks, 148 Caucasians, 23 Latino và 16 Others.\\
 	
-	Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "Tỉ lệ các dân tộc phân bố không đều nhau" với mức ý nghĩa (significance level) 5\%.
+	Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "Tỉ lệ các dân tộc phân bố không đều nhau" với mức ý nghĩa (significance level) 5\%.\\
 	
-	Gọi $p_i$ là tỉ lệ dân tộc nữ (Caucasian, Asian,..., Other) trong trường $\hat{p_i}$ là tỉ lệ dân tộc nữ trong mẫu dữ liệu. Với $i = 1, 2, \dots, 6$
+	Gọi $p_i$ là tỉ lệ dân tộc nữ (Caucasian, Asian,..., Other) trong trường $\hat{p_i}$ là tỉ lệ dân tộc nữ trong mẫu dữ liệu. Với $i = 1, 2, \dots, 6$\\
 	
 	Ta thực hiện kiểm định giả thuyết:
 	
@@ -146,9 +146,9 @@
 	H_1: p_i \neq 0.1666667
 	\end{cases}
 	\end{equation*}
-	với mức ý nghĩa $\alpha = 0.5\%$
+	với mức ý nghĩa $\alpha = 0.5\%$\\
 	
-	Lưu ý: Để dùng Chi-square để kiểm định thì các ô quan sát phải ít nhất 5.
+	Lưu ý: Để dùng Chi-square để kiểm định thì các ô quan sát phải ít nhất 5.\\
 	
 	\begin{lstlisting}[language=R]
 	> # Load data
@@ -193,7 +193,8 @@
 	\end{itemize}
 		
 	\section{Chi-Square Test of Independence (significant association) for two catogorical variables}
-	Chọn 2 biến định tính: DecisionMale (Yes/No) và RaceF (Asian, Black, Caucasian, Latino, Other)
+	
+	Chọn 2 biến định tính: DecisionMale (Yes/No) và RaceF (Asian, Black, Caucasian, Latino, Other)\\
 	
 	Khảo sát 2 biến định tính DecisionMale và RaceF
 	
@@ -227,9 +228,7 @@
 		\label{fig:barchart}
 	\end{figure}
 	
-	Giả sử, ta cần khảo sát sự liên kết giữa dân tộc nữ và sự phản hồi (Yes/No) của nam cho quần thể (population). Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát.
-	
-	Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "Giữa RaceF và DecisionMale có mỗi liên kết với nhau" với mức ý nghĩa (significance level) 5\%.\\
+	Giả sử, ta cần khảo sát sự liên kết giữa dân tộc nữ và sự phản hồi (Yes/No) của nam cho quần thể (population). Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát. Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "Giữa RaceF và DecisionMale có mỗi liên kết với nhau" với mức ý nghĩa (significance level) 5\%.\\
 	
 	Ta thực hiện kiểm định giả thuyết:
 	
@@ -328,7 +327,7 @@
 	
 	Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "RaceF và DecisionMale độc lập hay nói cách khác cả hai không có sự liên kết".\\
 		
-	Nhìn vào observed values table và expected values table, ta thấy được rằng chênh lệch ở đây rất ít.
+	Nhìn vào observed values table và expected values table, ta thấy được rằng chênh lệch ở đây rất ít.\\
 	
 	Để biết rõ về bản chất của sự phụ thuộc giữa 2 biến RaceF và DecisionMale, ta sẽ tiếp tục tính dư lượng chuẩn hóa (Standardized residuals hoặc Pearson residuals) cho từng ô để biết được ô nào đóng góp nhiều vào Chi-square $\mathcal{X}^2$:
 	$$r = \frac{{o - e}}{\sqrt{e}}$$
