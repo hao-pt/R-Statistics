@@ -127,61 +127,122 @@
 	
 	Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \hat{p}$ nên ta không bác bỏ $H_0$. 
 	
-	Như vậy, với mức ý nghĩa 5\%, tỉ lệ phản hồi "Yes" bằng phản hồi "No" của trường. 
+	Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "tỉ lệ phản hồi "Yes" bằng phản hồi "No" của trường". 
 	
 	\subsubsection{RaceF (Caucasian, Asian,..., Other)}
-	Giả sử, ta cần khảo sát tỉ lệ dân tộc nữ (Caucasian, Asian,..., Other) cho quần thể (population) là toàn bộ học sinh nữ của trường Columbia. Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát trong đó có 4 rỗng, 70 Asians, 15 Blacks, 148 Caucasians, 23 Latino và 16 Others. Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "tỉ lệ nữ da trắng cao hơn tỉ lệ dân tộc nữ các nhóm còn lại" với mức ý nghĩa (significance level) 5\%.
+	Giả sử, ta cần khảo sát tỉ lệ dân tộc nữ (Caucasian, Asian,..., Other) cho quần thể (population) là toàn bộ học sinh nữ của trường Columbia. Từ tổng thể, ta thu thập được một mẫu dữ liệu ngẫu nhiên (random sample) gồm 276 quan sát trong đó 6 dân tộc: 4 rỗng, 70 Asians, 15 Blacks, 148 Caucasians, 23 Latino và 16 Others. 
+	
+	\begin{enumerate}[label = \alph*)]
+		\item Kiểm định cho tỉ lệ nữ da trắng
 		
-	Gọi $p$ là tỉ lệ nữ da trắng trong trường, $\hat{p}$ là tỉ lệ nữ da trắng trong mẫu dữ liệu. Ta có
-	$$\hat{p} = \frac{148}{276} = 0.536$$
-	
-	Để tính đến sự biến động của $\hat{p}$ theo mẫu dữ liệu $n = 276$ thu thập từ tổng thể, ta thực hiện kiểm định giả thuyết:
-	
-	\begin{equation*}
-	\begin{cases}
-	H_0: p = p_0 = 0.5\\
-	H_1: p > 0.5
-	\end{cases}
-	\end{equation*}
-	với mức ý nghĩa $\alpha = 0.5\%$
-	
-	\begin{lstlisting}[language=R]
-	# TK can tinh
-	stat <- function(data){
-		return (mean(data)) # Ti le
-	}
-	
-	randomization <- function(B){
-		return (replicate(B, stat(sample(nullsample, n, replace = TRUE))))
-	}
-	
-	> # Mau du lieu ban dau
-	> sample <- RaceF
-	> # Kich thuoc mau, tham so mac dinh, ti le mau, muc y nghia
-	> (n <- length(sample)); (p0 <- 0.5); (p_hat <- mean(sample == "Caucasian")); (alpha <- 0.05)
-	[1] 276
-	[1] 0.5
-	[1] 0.5362319
-	[1] 0.05
-	> nullsample <- c(rep(1, n/2), rep(0, n/2)) # Mau du lieu tuong ung voi H0
-	 
-	> # Lay phan phoi cua randomization
-	> rand_dist <- randomization(10000)
-	> # Tinh p-value trong kiem dinh mot phia (one-tailed)
-	> (p_value <- mean(rand_dist >= p_hat))
-	[1] 0.1295
-	> # Tinh gia tri toi han (critical value) voi muc phan vi 1-alpha
-	> (crit_val <- quantile(rand_dist, 1 - alpha, names = FALSE))
-	[1] 0.5507246
-	> # Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
-	> p_value < alpha; crit_val < p_hat
-	[1] FALSE
-	[1] FALSE
-	\end{lstlisting}
-	
-	Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \hat{p}$ nên ta không bác bỏ $H_0$. 
-	
-	Như vậy, với mức ý nghĩa 5\%, tỉ lệ nữ da trắng bằng tỉ lệ dân tộc nữ các nhóm còn lại của trường. 
+		Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "tỉ lệ nữ da trắng nhiều hơn 1/6 (nghĩa là tỉ lệ các dân tộc không đều nhau)" với mức ý nghĩa (significance level) 5\%.
+		
+		Gọi $p$ là tỉ lệ nữ da trắng trong trường, $\hat{p}$ là tỉ lệ nữ da trắng trong mẫu dữ liệu. Ta có
+		$$\hat{p} = \frac{148}{276} = 0.536$$
+		
+		Để tính đến sự biến động của $\hat{p}$ theo mẫu dữ liệu $n = 276$ thu thập từ tổng thể, ta thực hiện kiểm định giả thuyết:
+		
+		\begin{equation*}
+		\begin{cases}
+		H_0: p = p_0 = 0.1666667\\
+		H_1: p > 0.1666667
+		\end{cases}
+		\end{equation*}
+		với mức ý nghĩa $\alpha = 0.5\%$
+		
+		\begin{lstlisting}[language=R]
+		# TK can tinh
+		stat <- function(data){
+			return (mean(data)) # Ti le
+		}
+		
+		randomization <- function(B){
+			return (replicate(B, stat(sample(nullsample, n, replace = TRUE))))
+		}
+		
+		> # Mau du lieu ban dau
+		> sample <- RaceF
+		> # Kich thuoc mau, tham so mac dinh, ti le mau, muc y nghia
+		> (n <- length(sample)); (p0 <- 1/6); (p_hat <- mean(sample == "Caucasian")); (alpha <- 0.05)
+		[1] 276
+		[1] 0.1666667
+		[1] 0.5362319
+		[1] 0.05
+		> nullsample <- c(rep(1, n/6), rep(0, n*(5/6))) # Mau du lieu tuong ung voi H0
+		
+		> # Lay phan phoi cua randomization
+		> rand_dist <- randomization(10000)
+		> # Tinh p-value trong kiem dinh mot phia (one-tailed)
+		> (p_value <- mean(rand_dist >= p_hat))
+		[1] 0
+		> # Tinh gia tri toi han (critical value) voi muc phan vi 1-alpha
+		> (crit_val <- quantile(rand_dist, 1 - alpha, names = FALSE))
+		[1] 0.2065217
+		> # Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
+		> p_value < alpha; crit_val < p_hat
+		[1] TRUE
+		[1] TRUE
+		\end{lstlisting}
+		
+		Vì $p-value < \alpha$ nên ta bác bỏ $H_0$ và chấp nhận $H_1$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val < \hat{p}$ nên ta bác bỏ $H_0$ và chấp nhận $H_1$. 
+		
+		Như vậy, với mức ý nghĩa 5\%, ta chấp nhận "tỉ lệ nữ da trắng nhiều hơn 1/6 của toàn trường". 
+		
+		\item Kiểm định cho tỉ lệ nữ da đen
+		
+		Dựa vào mẫu dữ liệu này, ta kiểm định nghi vấn "tỉ lệ nữ da đen ít hơn 1/6 (nghĩa là tỉ lệ các dân tộc không đều nhau)" với mức ý nghĩa (significance level) 5\%.
+		
+		Gọi $p$ là tỉ lệ nữ da đen trong trường, $\hat{p}$ là tỉ lệ nữ da đen trong mẫu dữ liệu. Ta có
+		$$\hat{p} = \frac{15}{276} = 0.05434783$$
+		
+		Để tính đến sự biến động của $\hat{p}$ theo mẫu dữ liệu $n = 276$ thu thập từ tổng thể, ta thực hiện kiểm định giả thuyết:
+		
+		\begin{equation*}
+		\begin{cases}
+		H_0: p = p_0 = 0.1666667\\
+		H_1: p < 0.1666667
+		\end{cases}
+		\end{equation*}
+		với mức ý nghĩa $\alpha = 0.5\%$
+		
+		\begin{lstlisting}[language=R]
+		# TK can tinh
+		stat <- function(data){
+			return (mean(data)) # Ti le
+		}
+		
+		randomization <- function(B){
+			return (replicate(B, stat(sample(nullsample, n, replace = TRUE))))
+		}
+		
+		> # Mau du lieu ban dau
+		> sample <- RaceF
+		> # Kich thuoc mau, tham so mac dinh, ti le mau, muc y nghia
+		> (n <- length(sample)); (p0 <- 1/6); (p_hat <- mean(sample == "Black")); (alpha <- 0.05)
+		[1] 276
+		[1] 0.1666667
+		[1] 0.05434783
+		[1] 0.05
+		> nullsample <- c(rep(1, n/6), rep(0, n*(5/6))) # Mau du lieu tuong ung voi H0
+		> 
+		> # Lay phan phoi cua randomization
+		> rand_dist <- randomization(10000)
+		> # Tinh p-value trong kiem dinh mot phia (one-tailed)
+		> (p_value <- mean(rand_dist <= p_hat))
+		[1] 0
+		> # Tinh gia tri toi han (critical value) voi muc phan vi 1-alpha
+		> (crit_val <- quantile(rand_dist, 1 - alpha, names = FALSE))
+		[1] 0.2028986
+		> # Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
+		> (p_value < alpha); (crit_val > p_hat)
+		[1] TRUE
+		[1] TRUE
+		\end{lstlisting}
+		
+		Vì $p-value < \alpha$ nên ta bác bỏ $H_0$ và chấp nhận $H_1$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \hat{p}$ nên ta bác bỏ $H_0$ và chấp nhận $H_1$. 
+		
+		Như vậy, với mức ý nghĩa 5\%, ta chấp nhận "tỉ lệ nữ da đen ít hơn 1/6 của toàn trường". 
+	\end{enumerate}
 		
 	\subsection{Biến định lượng (Quantative variable)}
 	\subsubsection{AttractiveM (0-10)}
@@ -241,9 +302,9 @@
 			[1] FALSE
 			\end{lstlisting}
 			
-			Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \bar{x}$ nên ta không bác bỏ $H_0$. 
+			Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $|crit\_val - \mu_0| > |\bar{x} - \mu_0|$ nên ta không bác bỏ $H_0$. 
 			
-			Như vậy, với mức ý nghĩa 5\%, kì vọng mức độ quyến rũ của sinh viên nữ là $6.6$. 
+			Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "kì vọng mức độ quyến rũ của sinh viên nữ là $6.6$". 
 			
 		\item Kiểm định cho trung vị (median)
 		
@@ -301,9 +362,9 @@
 			[1] FALSE
 			\end{lstlisting}
 			
-			Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \hat{med}$ nên ta không bác bỏ $H_0$. 
+			Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $|crit\_val - med_0| > |\hat{med} - med_0|$ nên ta không bác bỏ $H_0$. 
 			
-			Như vậy, với mức ý nghĩa 5\%, trung vị mức độ quyến rũ của sinh viên nữ trong trường là $7.0$. 
+			Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "trung vị mức độ quyến rũ của sinh viên nữ trong trường là $7.0$". 
 			
 	\end{enumerate}
 	
@@ -363,9 +424,9 @@
 		[1] FALSE
 		\end{lstlisting}
 		
-		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \bar{x}$ nên ta không bác bỏ $H_0$. 
+		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $|crit\_val - \mu_0| > |\bar{x} - \mu_0|$ nên ta không bác bỏ $H_0$. 
 		
-		Như vậy, với mức ý nghĩa 5\%, kì vọng mức độ thích của sinh viên nam là $6.6$. 
+		Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "kì vọng mức độ thích của sinh viên nam là $6.6$". 
 		
 		\item Kiểm định cho trung vị (median)
 		
@@ -423,9 +484,9 @@
 		[1] FALSE
 		\end{lstlisting}
 		
-		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \hat{med}$ nên ta không bác bỏ $H_0$. 
+		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $|crit\_val - med_0| > |\hat{med} - med_0|$ nên ta không bác bỏ $H_0$. 
 		
-		Như vậy, với mức ý nghĩa 5\%, trung vị mức độ thích của sinh viên nam đối với sinh viên nữ trong trường là $7.0$. 
+		Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "trung vị mức độ thích của sinh viên nam đối với sinh viên nữ trong trường là $7.0$". 
 	\end{enumerate}
 	
 	\subsubsection{SincereM (0-10)}
@@ -484,9 +545,9 @@
 		[1] FALSE
 		\end{lstlisting}
 		
-		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \bar{x}$ nên ta không bác bỏ $H_0$. 
+		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $|crit\_val - \mu_0| > |\bar{x} - \mu_0|$ nên ta không bác bỏ $H_0$. 
 		
-		Như vậy, với mức ý nghĩa 5\%, kì vọng mức độ chân thành của sinh viên nữ là $7.8$.
+		Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "kì vọng mức độ chân thành của sinh viên nữ là $7.8$".
 	
 		\item Kiểm định cho trung vị (median)
 		
@@ -544,9 +605,9 @@
 		[1] FALSE
 		\end{lstlisting}
 		
-		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \hat{med}$ nên ta không bác bỏ $H_0$. 
+		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $|crit\_val - med_0| > |\hat{med} - med_0|$ nên ta không bác bỏ $H_0$. 
 		
-		Như vậy, với mức ý nghĩa 5\%, trung vị mức độ chân thành của sinh viên nữ trong trường là $8.0$. 
+		Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "trung vị mức độ chân thành của sinh viên nữ trong trường là $8.0$". 
 	\end{enumerate}
 	
 	\section{Khảo sát cặp biến}
@@ -622,20 +683,43 @@
 		> # Mau du lieu ban dau
 		> sample <- data.frame(DecisionMale, RaceF)
 		> # tham so mac dinh, ti le mau, muc y nghia
-		> (p0 <- 0.5); (p_hat <- stat(sample)); (alpha <- 0.05)
-		[1] 0.5
+		> (p0 <- 0); (p_hat <- stat(sample)); (alpha <- 0.05)
+		[1] 0
 		[1] 0.01449275
 		[1] 0.05
 		> # Kich thuoc mau
 		> (n <- nrow(sample))
 		[1] 276
-		> nullsample <- data.frame("DecisionMale" = c(rep("Yes", n/2), rep("No", n/2)), "RaceF" = rep("Caucasian", n)) # Mau du lieu tuong ung voi H0 
-		
+		 
+		> # Bang tong quat cho 6 dan toc
+		> tab <- addmargins(table(DecisionMale, RaceF)); tab
+		RaceF
+		DecisionMale     Asian Black Caucasian Latino Other Sum
+		No    2    32     7        72      7    10 130
+		Yes   2    38     8        76     16     6 146
+		Sum   4    70    15       148     23    16 276
+		> # Bang dan toc trang va gom nhom 5 dan toc kia thanh 1 nhom
+		> tab2 <- matrix(c(tab[10:11], tab[19:20] - tab[10:11]), nrow = 2, byrow = FALSE)
+		> colnames(tab2) <- c("Caucasian", "Others")
+		> rownames(tab2) <- c("No", "Yes")
+		> tab2 <- as.table(tab2); tab2
+		Caucasian Others
+		No         72     58
+		Yes        76     70
+		> 
+		> # Tinh expected value
+		> expected <- as.array(margin.table(tab2,1)) %*% t(as.array(margin.table(tab2,2))) / margin.table(tab2)
+		> expected <- round(expected); expected
+		Caucasian Others
+		No         70     60
+		Yes        78     68
+		> nullsample <- data.frame("DecisionMale" = c(rep("No", expected[1]), rep("Yes", expected[2]), rep("No", expected[3]), rep("Yes", expected[4])), "RaceF" = c(rep("Caucasian", margin.table(tab2, 2)[1]), rep("Others", margin.table(tab2, 2)[2]))) # Mau du lieu tuong ung voi H0
+		 
 		> # Lay phan phoi cua randomization
 		> rand_dist <- randomization(10000)
 		> # Tinh p-value trong kiem dinh mot phia (one-tailed)
 		> (p_value <- mean(rand_dist >= p_hat))
-		[1] 0.4285
+		[1] 0.6331
 		> # Tinh gia tri toi han (critical value) voi muc phan vi 1-alpha
 		> (crit_val <- quantile(rand_dist, 1 - alpha, names = FALSE))
 		[1] 0.1014493
@@ -647,7 +731,7 @@
 	
 		Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \Delta\hat{p}$ nên ta không bác bỏ $H_0$. 
 	
-		Như vậy, với mức ý nghĩa 5\%, tỉ lệ nữ da trắng nhận phản hồi "Yes" bằng với phản hồi "No".
+		Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "tỉ lệ nữ da trắng nhận phản hồi "Yes" bằng với phản hồi "No"".
 		
 		\subsubsection{Kiểm định cho tỉ lệ khác biệt giữa nữ châu Á nhận phản hồi "Yes"/"No"}
 		
@@ -691,25 +775,44 @@
 			> # Kich thuoc mau
 			> (n <- nrow(sample))
 			[1] 276
-			> nullsample <- data.frame("DecisionMale" = c(rep("Yes", n/2), rep("No", n/2)), "RaceF" = rep("Asian", n)) # Mau du lieu tuong ung voi H0
-			
+			> # Bang dan toc chau a va gom nhom 5 dan toc kia thanh 1 nhom
+			> tab2 <- matrix(c(tab[4:5], tab[19:20] - tab[4:5]), nrow = 2, byrow = FALSE)
+			> colnames(tab2) <- c("Asian", "Others")
+			> rownames(tab2) <- c("No", "Yes")
+			> tab2 <- as.table(tab2); tab2
+			Asian Others
+			No     32     98
+			Yes    38    108
+			> 
+			> # Tinh expected value
+			> expected <- as.array(margin.table(tab2,1)) %*% t(as.array(margin.table(tab2,2))) / margin.table(tab2)
+			> expected <- round(expected); expected
+			Asian Others
+			No     33     97
+			Yes    37    109
+			> # Mau du lieu tuong ung voi H0
+			> nullsample <- data.frame("DecisionMale" = c(rep("No", expected[1]), rep("Yes", expected[2]), 
+			+                                           rep("No", expected[3]), rep("Yes", expected[4])), 
+			+                          "RaceF" = c(rep("Asian", margin.table(tab2, 2)[1]), 
+			+                                      rep("Others", margin.table(tab2, 2)[2]))) 
+			 
 			> # Lay phan phoi cua randomization
 			> rand_dist <- randomization(10000)
-			> # Tinh p-value trong kiem dinh mot phia (one-tailed)
+			> # Tinh p-value trong kiem dinh hai phia (two-tailed)
 			> (p_value <- mean(abs(rand_dist - p0) >= abs(p_hat - p0)))
-			[1] 0.7658
+			[1] 0.5456
 			> # Tinh gia tri toi han (critical value) voi muc phan vi 1-alpha/2
 			> (crit_val <- quantile(rand_dist, 1 - alpha/2, names = FALSE))
-			[1] 0.115942
+			[1] 0.07608696
 			> # Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
-			> p_value < alpha; crit_val < p_hat
+			> p_value < alpha; abs(crit_val - p0) < abs(p_hat - p0)
 			[1] FALSE
 			[1] FALSE
 			\end{lstlisting}
 			
-			Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $crit\_val > \Delta\hat{p}$ nên ta không bác bỏ $H_0$.
+			Vì $p-value > \alpha$ nên ta không bác bỏ $H_0$. Tương tự, ta có giá trị tới hạn (critical value) $|crit\_val - \Delta p_0| > |\Delta\hat{p} - \Delta p_0|$ nên ta không bác bỏ $H_0$.
 			
-			Như vậy, với mức ý nghĩa 5\%, tỉ lệ nữ châu Á nhận phản hồi "Yes" bằng với phản hồi "No".
+			Như vậy, với mức ý nghĩa 5\%, ta không có đủ căn cứ để bác bỏ "tỉ lệ nữ châu Á nhận phản hồi "Yes" bằng với phản hồi "No"".
 		
 		
 	\subsection{Biến định tính và biến định lượng}

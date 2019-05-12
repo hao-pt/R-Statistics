@@ -34,9 +34,9 @@ rand_dist <- randomization(10000)
 p_value < alpha; crit_val < p_hat
 
 #- b) RaceF
-# - Kiem dinh TK cho ti le dan toc nua da trang nhieu hon cac dan toc con lai
-# H0 = 0.5
-# H1 > 0.5
+# - Kiem dinh TK cho ti le dan toc nua da trang nhieu hon 1/6
+# H0 = 1/6
+# H1 > 1/6
 
 # TK can tinh
 stat <- function(data){
@@ -50,8 +50,8 @@ randomization <- function(B){
 # Mau du lieu ban dau
 sample <- RaceF
 # Kich thuoc mau, tham so mac dinh, ti le mau, muc y nghia
-(n <- length(sample)); (p0 <- 0.5); (p_hat <- mean(sample == "Caucasian")); (alpha <- 0.05)
-nullsample <- c(rep(1, n/2), rep(0, n/2)) # Mau du lieu tuong ung voi H0
+(n <- length(sample)); (p0 <- 1/6); (p_hat <- mean(sample == "Caucasian")); (alpha <- 0.05)
+nullsample <- c(rep(1, n/6), rep(0, n*(5/6))) # Mau du lieu tuong ung voi H0
 
 # Lay phan phoi cua randomization
 rand_dist <- randomization(10000)
@@ -61,6 +61,34 @@ rand_dist <- randomization(10000)
 (crit_val <- quantile(rand_dist, 1 - alpha, names = FALSE))
 # Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
 p_value < alpha; crit_val < p_hat
+
+# - Kiem dinh TK cho ti le nu da den it hon 1/6
+# H0 = 1/6
+# H1 < 1/6
+
+# TK can tinh
+stat <- function(data){
+  return (mean(data)) # Ti le
+}
+
+randomization <- function(B){
+  return (replicate(B, stat(sample(nullsample, n, replace = TRUE))))
+}
+
+# Mau du lieu ban dau
+sample <- RaceF
+# Kich thuoc mau, tham so mac dinh, ti le mau, muc y nghia
+(n <- length(sample)); (p0 <- 1/6); (p_hat <- mean(sample == "Black")); (alpha <- 0.05)
+nullsample <- c(rep(1, n/6), rep(0, n*(5/6))) # Mau du lieu tuong ung voi H0
+
+# Lay phan phoi cua randomization
+rand_dist <- randomization(10000)
+# Tinh p-value trong kiem dinh mot phia (one-tailed)
+(p_value <- mean(rand_dist <= p_hat))
+# Tinh gia tri toi han (critical value) voi muc phan vi 1-alpha
+(crit_val <- quantile(rand_dist, 1 - alpha, names = FALSE))
+# Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
+(p_value < alpha); (crit_val > p_hat)
 
 #2. Bien dinh luong
 #a) AttractiveM
@@ -241,11 +269,28 @@ randomization <- function(B){
 # Mau du lieu ban dau
 sample <- data.frame(DecisionMale, RaceF)
 # tham so mac dinh, ti le mau, muc y nghia
-(p0 <- 0.5); (p_hat <- stat(sample)); (alpha <- 0.05)
+(p0 <- 0); (p_hat <- stat(sample)); (alpha <- 0.05)
 # Kich thuoc mau
 (n <- nrow(sample))
-nullsample <- data.frame("DecisionMale" = c(rep("Yes", n/2), rep("No", n/2)), "RaceF" = rep("Caucasian", n)) # Mau du lieu tuong ung voi H0
 
+# Bang tong quat cho 6 dan toc
+tab <- addmargins(table(DecisionMale, RaceF)); tab
+# Bang dan toc trang va gom nhom 5 dan toc kia thanh 1 nhom
+tab2 <- matrix(c(tab[10:11], tab[19:20] - tab[10:11]), nrow = 2, byrow = FALSE)
+colnames(tab2) <- c("Caucasian", "Others")
+rownames(tab2) <- c("No", "Yes")
+tab2 <- as.table(tab2); tab2
+
+# Tinh expected value
+expected <- as.array(margin.table(tab2,1)) %*% t(as.array(margin.table(tab2,2))) / margin.table(tab2)
+expected <- round(expected); expected
+# Mau du lieu tuong ung voi H0
+nullsample <- data.frame("DecisionMale" = c(rep("No", expected[1]), 
+                                            rep("Yes", expected[2]), 
+                                            rep("No", expected[3]), 
+                                            rep("Yes", expected[4])), 
+                         "RaceF" = c(rep("Caucasian", margin.table(tab2, 2)[1]), 
+                                     rep("Others", margin.table(tab2, 2)[2]))) 
 
 # Lay phan phoi cua randomization
 rand_dist <- randomization(10000)
@@ -272,8 +317,20 @@ randomization <- function(B){
 (p0 <- 0); (p_hat <- stat(sample)); (alpha <- 0.05)
 # Kich thuoc mau
 (n <- nrow(sample))
-nullsample <- data.frame("DecisionMale" = c(rep("Yes", n/2), rep("No", n/2)), "RaceF" = rep("Asian", n)) # Mau du lieu tuong ung voi H0
+# Bang dan toc chau a va gom nhom 5 dan toc kia thanh 1 nhom
+tab2 <- matrix(c(tab[4:5], tab[19:20] - tab[4:5]), nrow = 2, byrow = FALSE)
+colnames(tab2) <- c("Asian", "Others")
+rownames(tab2) <- c("No", "Yes")
+tab2 <- as.table(tab2); tab2
 
+# Tinh expected value
+expected <- as.array(margin.table(tab2,1)) %*% t(as.array(margin.table(tab2,2))) / margin.table(tab2)
+expected <- round(expected); expected
+# Mau du lieu tuong ung voi H0
+nullsample <- data.frame("DecisionMale" = c(rep("No", expected[1]), rep("Yes", expected[2]), 
+                                          rep("No", expected[3]), rep("Yes", expected[4])), 
+                         "RaceF" = c(rep("Asian", margin.table(tab2, 2)[1]), 
+                                     rep("Others", margin.table(tab2, 2)[2]))) 
 
 # Lay phan phoi cua randomization
 rand_dist <- randomization(10000)
@@ -282,7 +339,7 @@ rand_dist <- randomization(10000)
 # Tinh gia tri toi han (critical value) voi muc phan vi 1-alpha/2
 (crit_val <- quantile(rand_dist, 1 - alpha/2, names = FALSE))
 # Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
-p_value < alpha; crit_val < p_hat
+p_value < alpha; abs(crit_val - p0) < abs(p_hat - p0)
 
 # 4. Bien dinh tinh va bien dinh luong
 # - Kiem dinh thong ke ki vong AttractiveM|"Yes" se cao hon ki vong AttractiveM|"No"
