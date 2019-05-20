@@ -1,7 +1,7 @@
-This is LuaTeX, Version 1.10.0 (MiKTeX 2.9.7000 64-bit)  (format=lualatex 2019.3.19)  13 MAY 2019 10:25
+This is LuaTeX, Version 1.10.0 (MiKTeX 2.9.7000 64-bit)  (format=lualatex 2019.3.19)  20 MAY 2019 20:51
  restricted system commands enabled.
-**1612174_Lab07.tex
-(./1612174_Lab07.tex
+**1612174_Lab08.tex
+(./1612174_Lab08.tex
 LaTeX2e <2018-12-01>
 Lua module: luaotfload-main 2019-02-14 2.96 luaotfload entry point
 Lua module: luaotfload-init 2019-02-14 2.96 luaotfload submodule / initializatio
@@ -48,7 +48,7 @@ Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font
 '.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'
 .
-luaotfload | main : initialization completed in 1.077 seconds
+luaotfload | main : initialization completed in 1.176 seconds
 
 ("C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/tex/latex/base/article.cl
 s"
@@ -644,12 +644,8 @@ def"
 File: puenc.def 2018/11/30 v6.88e Hyperref: PDF Unicode definition (HO)
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 18.
- (./1612174_Lab07.aux
-
-LaTeX Warning: Label `fig:barchart' multiply defined.
-
-)
-\openout1 = 1612174_Lab07.aux
+ (./1612174_Lab08.aux)
+\openout1 = 1612174_Lab08.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
@@ -780,10 +776,10 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 54.
 LaTeX Info: Redefining \pageref on input line 54.
 LaTeX Info: Redefining \nameref on input line 54.
- (./1612174_Lab07.out) (./1612174_Lab07.out)
+ (./1612174_Lab08.out) (./1612174_Lab08.out)
 \@outlinefile=\write3
 
-\openout3 = 1612174_Lab07.out
+\openout3 = 1612174_Lab08.out
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -825,10 +821,10 @@ Package caption Info: End \AtBeginDocument code.
 [1
 
 {C:/Users/Tien Hao/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-(./1612174_Lab07.toc)
+(./1612174_Lab08.toc)
 \tf@toc=\write4
 
-\openout4 = 1612174_Lab07.toc
+\openout4 = 1612174_Lab08.toc
 
 warning  (pdf backend): ignoring duplicate destination with the name 'page.'
 [2]
@@ -849,159 +845,84 @@ File: lstlang2.sty 2019/02/27 1.8b listings language file
 g3.sty"
 File: lstlang3.sty 2019/02/27 1.8b listings language file
 )
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
+<xyplot.png, id=33, 395.97937pt x 272.51813pt>
+File: xyplot.png Graphic file (type png)
+<use xyplot.png>
+Package luatex.def Info: xyplot.png  used on input line 101.
+(luatex.def)             Requested size: 181.18439pt x 124.69452pt.
+<boxplot.png, id=34, 395.97937pt x 272.51813pt>
+File: boxplot.png Graphic file (type png)
+<use boxplot.png>
+Package luatex.def Info: boxplot.png  used on input line 106.
+(luatex.def)             Requested size: 181.18439pt x 124.69452pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
-
- []
-
-[1]
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 126--128
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 148--150
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+[1<./xyplot.png><./boxplot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
 [2]
+Underfull \hbox (badness 10000) in paragraph at lines 177--179
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--198
+Underfull \hbox (badness 10000) in paragraph at lines 188--190
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--193
 
  []
 
 [3]
-<segmented_barchart.png, id=138, 451.6875pt x 272.51813pt>
-File: segmented_barchart.png Graphic file (type png)
-<use segmented_barchart.png>
-Package luatex.def Info: segmented_barchart.png  used on input line 226.
-(luatex.def)             Requested size: 317.07614pt x 191.31444pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 229--230
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 242--243
-
- []
-
-[4<./segmented_barchart.png>]
-<barchart.png, id=168, 727.21687pt x 503.63156pt>
-File: barchart.png Graphic file (type png)
-<use barchart.png>
-Package luatex.def Info: barchart.png  used on input line 274.
-(luatex.def)             Requested size: 452.9679pt x 313.70845pt.
- [5<./barchart.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 292--296
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 328--329
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
-
- []
-
-[6]
-<corplot.png, id=222, 604.50844pt x 272.51813pt>
-File: corplot.png Graphic file (type png)
-<use corplot.png>
-Package luatex.def Info: corplot.png  used on input line 354.
-(luatex.def)             Requested size: 317.07614pt x 142.94109pt.
- [7<./corplot.png>]
-<contrib.png, id=240, 582.67688pt x 270.25969pt>
-File: contrib.png Graphic file (type png)
-<use contrib.png>
-Package luatex.def Info: contrib.png  used on input line 390.
-(luatex.def)             Requested size: 317.07614pt x 147.0721pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 395--396
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
-[]\TU/TimesNewRoman(0)/m/n/12 Chi-Square Test of In-de-pen-dence in R. (n.d.). 
-Re-trieved from
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 409--410
-[]\TU/TimesNewRoman(0)/m/n/12 Chi-square Good-ness of Fit Test in R. (n.d.). Re
--trieved from
- []
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 411.
-[8<./contrib.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 411.
- (./1612174_Lab07.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 411.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 411.
-Package rerunfilecheck Info: File `1612174_Lab07.out' has not changed.
-(rerunfilecheck)             Checksum: 7FCA39B916FE1A87F559B87267E6679D;1315.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 411.
+<tukeyplot.png, id=130, 395.97937pt x 272.51813pt>
+File: tukeyplot.png Graphic file (type png)
+<use tukeyplot.png>
+Package luatex.def Info: tukeyplot.png  used on input line 266.
+(luatex.def)             Requested size: 317.07614pt x 218.21855pt.
+[4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 278.
+ [5<./tukeyplot.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 278.
+ (./1612174_Lab08.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 278.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 278.
+Package rerunfilecheck Info: File `1612174_Lab08.out' has not changed.
+(rerunfilecheck)             Checksum: 47BE55B12988FAF1C2C33B1116940A63;1383.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 278.
 )
 
 Here is how much of LuaTeX's memory you used:
- 24712 strings out of 494300
- 244174,794899 words of node,token memory allocated
- 551 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 3 glue, 4 kern, 1 glyph, 17 attribute, 54 glue_spec
-, 17 attribute_list, 1 write, 1 pdf_action nodes
-   avail lists: 1:1,2:5008,3:146,4:5906,5:5666,6:46,7:6554,8:41,9:14157,10:47,11
-:580
- 28266 multiletter control sequences out of 65536+200000
- 77 fonts using 23647127 bytes
- 47i,10n,78p,707b,1249s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 24670 strings out of 494300
+ 305229,794899 words of node,token memory allocated
+ 512 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 9 attribute, 54 glue_spec,
+ 9 attribute_list, 1 write, 1 pdf_action nodes
+   avail lists: 2:6145,3:161,4:6942,5:6845,6:54,7:6778,8:47,9:17100,10:45,11:672
 
-warning  (pdf backend): unreferenced destination with name 'Hfootnote.1'
+ 28287 multiletter control sequences out of 65536+200000
+ 77 fonts using 23647127 bytes
+ 47i,12n,78p,730b,1258s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/WINDOWS/Fonts/timesbd.ttf><C:/WINDOWS/Fonts/times.ttf><C:/Users/Tien Hao/App
 Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Use
 rs/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
@@ -1010,9 +931,9 @@ amsfonts/cm/cmmi8.pfb><C:/Users/Tien Hao/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Tien Hao/AppData/Local/Programs/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Tien Hao/AppData/Loca
 l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on 1612174_Lab07.pdf (10 pages, 246857 bytes).
+Output written on 1612174_Lab08.pdf (7 pages, 197791 bytes).
 
-PDF statistics: 305 PDF objects out of 1000 (max. 8388607)
- 193 named destinations out of 1000 (max. 131072)
- 33 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 229 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 131072)
+ 25 words of extra memory for PDF output out of 10000 (max. 100000000)
 

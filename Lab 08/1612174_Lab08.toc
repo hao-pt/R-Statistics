@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}Biến định tính và biến định lượng}{1}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Phân tích phương sai đơn giản nhiều nhóm đồng thời (One-way Analyst of Variance - ANOVA)}{1}{subsection.1.1}% 
+\contentsline {subsection}{\numberline {1.2}So sánh nhiều nhóm (Multiple comparison) và điều chỉnh p-value}{3}{subsection.1.2}% 
