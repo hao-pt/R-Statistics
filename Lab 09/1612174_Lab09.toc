@@ -1,0 +1,2 @@
+\contentsline {section}{\numberline {1}Categorical variables with 2 levels}{1}{section.1}% 
+\contentsline {section}{\numberline {2}Categorical variables with more than 2 levels}{4}{section.2}% 

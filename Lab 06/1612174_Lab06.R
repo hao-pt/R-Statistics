@@ -90,6 +90,10 @@ rand_dist <- randomization(10000)
 # Kiem tra xem p_value co be hon alpha, neu co thi bac bo H0
 (p_value < alpha); (crit_val > p_hat)
 
+
+
+prop.test(count(sample == "Black"), n, p = p0, conf.level = 1 - alpha, alternative = 'less')
+
 #2. Bien dinh luong
 #a) AttractiveM
 # - Kiem dinh thong ke cho muc do quyen ru tb la 6.6
