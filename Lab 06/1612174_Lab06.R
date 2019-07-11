@@ -92,8 +92,8 @@ rand_dist <- randomization(10000)
 
 
 
-prop.test(count(sample == "Black"), n, p = p0, conf.level = 1 - alpha, alternative = 'less')
-
+prop.test(count(sample == "Black"), n, p = p0, conf.level = 1 - alpha, alternative = 'greater')
+prop.test(count(sample == "Black"), n, conf.level = 1 - alpha)
 #2. Bien dinh luong
 #a) AttractiveM
 # - Kiem dinh thong ke cho muc do quyen ru tb la 6.6

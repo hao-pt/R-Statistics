@@ -22,6 +22,8 @@ rand_dist <- randomization(10000)
 # Kiem tra xem p_value co be hon alpha va crit_val co be hon ti le mau p_hat
 p_value < anpha; crit_val < p_hat
 
+prop.test(60, 100, conf.level = 1 - anpha, alternative = 'less')
+
 # C2: Kiem dinh bang xay dung khoang tin cay cho p
 sample1 <- c(rep(1, 60), rep(0, 40))
 boot_dist <- replicate(10000, stat(sample(sample1, n, replace=TRUE)))

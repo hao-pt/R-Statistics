@@ -50,4 +50,5 @@ rand_dist <- randomization(10000); hist(rand_dist)
 # Tinh pvalue
 p_value <- sum(rand_dist >= f_sample)/length(rand_dist); p_value
 
+predict(interval = )
 

@@ -102,4 +102,4 @@ hist(rand_dist)
 p_value <- sum(rand_dist >= chisq_sample) / length(rand_dist); p_value
 
 
-
+pnorm(3, mean = 6.5, sd = 1.5)*50
